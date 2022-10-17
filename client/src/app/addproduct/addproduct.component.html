@@ -1,0 +1,154 @@
+<div class="imacontainer">
+    <div class="subheader position-relative">
+        <div class="subheadings">
+            <h2 class="text-uppercase">Add Products</h2>
+        </div>
+        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
+    </div>
+    <div class="content-middle">
+        <div class="container">
+            <h3 class="text-center h3_title">List your Product</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="imgUploadbx">
+                        <div class="pictureContainer">
+                            <div class="pictureSec productPic">
+                                <img *ngIf="images_details && images_details.length > 0"
+                                    src="{{mainImage}}"
+                                    class="input_img pictureSrc"
+                                    title=""
+                                    class="img-responsive"
+                                />
+                                <h6 class="addPoto" (click)="selectFile()" *ngIf="images_details && images_details.length === 0">
+                                    Upload product Image<br />
+                                    <i class="fa fa-camera"></i>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12" *ngIf="images_details && images_details.length > 0">
+                            <h6 class="titleh6 pt-1" (click)="selectFile()">
+                                <i class="fa fa-plus addMorebtn"></i> Add more
+                                Images
+                            </h6>
+                        </div>
+
+                        <div class="col-lg-6 col-md-12" *ngIf="images_details && images_details.length > 0">
+                            <div class="d-md-inline d-sm-inline d-inline uploadSli">
+                                <ngb-carousel>
+                                    <ng-template ngbSlide *ngFor="let images of images_details">
+                                        <img (click)="changeImage(images)" src="{{images}}" class="selectImg" />
+                                    </ng-template>
+                                </ngb-carousel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="customSizeadd pt-4">
+                        <h6 class="titleh6">Choose Color</h6>
+                        <div *ngFor="let detail of product.details; let i = index;" class="chooseColor" [ngClass]="{'active': detail.is_active}" [style.background]="detail.color" (click)="editColor(i)"></div>
+                        <div class="addColor" [(colorPicker)]="color" (colorPickerClose)="addColor($event)" >
+                            <i class="fa fa-plus" for="color"></i>
+                        </div>
+                    </div>
+                    <div class="customSizebox pt-3"  *ngIf="product && product.details && product.details[0] && product.details[0].images_details && product.details[0].images_details.length > 0">
+                        <h6 class="titleh6">Choose Sizes</h6>
+                        <span *ngFor="let size of sizes">
+                            <input type="checkbox" id="{{size.id}}" [(ngModel)]="size.isActive" />
+                            <label for="{{size.id}}" (click)="chooseSize(size)">{{size.name}}</label>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <form class="productForm">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="name">Product Name</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="name"
+                                    [(ngModel)]="product.name"
+                                    [ngModelOptions]="{standalone: true}"
+                                    placeholder="What are you Selling?"
+                                />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="description"
+                                    >Product Description</label
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="description"
+                                    [(ngModel)]="product.description"
+                                    [ngModelOptions]="{standalone: true}"
+                                    placeholder="Describe Your Product"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="quantity">Quantity</label>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="quantity"
+                                    [(ngModel)]="product.quantity"
+                                    [ngModelOptions]="{standalone: true}"
+                                    placeholder="Set Quantity"
+                                />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="price">Price</label>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="price"
+                                    [(ngModel)]="product.price"
+                                    [ngModelOptions]="{standalone: true}"
+                                    placeholder="Set Price"
+                                />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="discount">Discount Percentage</label>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="discount"
+                                    [(ngModel)]="product.discount_percentage"
+                                    [ngModelOptions]="{standalone: true}"
+                                    placeholder="Set Discount Percentage"
+                                />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="coupon_code">Discount Code</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="coupon_code"
+                                    [(ngModel)]="product.coupon_code"
+                                    [ngModelOptions]="{standalone: true}"
+                                    placeholder="Set your Discount Code"
+                                />
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button
+                                type="button"
+                                (click)="addproduct()"
+                                class="btn btn-primary primaryBtn mt-5"
+                            >
+                                Continue
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="file" #imageupload class="hide-file" (change)="uploadImage($event)" accept="image/x-png,image/jpeg" multiple/>

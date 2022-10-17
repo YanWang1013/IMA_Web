@@ -1,0 +1,53 @@
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-1">
+                
+                <div class="verticalItem">
+                    <h3> Title Sponsor </h3>
+                    <a href="javascript:void(0)" *ngIf="advertisementList && advertisementList.data.length > 0">
+                        <div class="itemMedia">
+                            <app-attachment [type]="'mobile'"
+                                    [attachment]="titleSponser.attachment"
+                                     [cssClass]="'sponsorsBox-img'"
+                                ></app-attachment>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 offset-md-1">
+                <div class="innerBanners_box">
+                    <h1>Sponsors</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- Comming Soon Start -->
+<section class="commingSoon">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h4 class="commingSoon-text"> Coming Soon </h4> -->
+
+                <div class="clsclientBlock pt-20 row" *ngIf="advertisementList">
+                    <div *ngFor="let advertisement of advertisementList.data;
+                    let i = index;" class="col-xs-3">
+                        <div class="clsImage" *ngIf="advertisement.id !== 1">
+                            <a href="javascript:void(0)">
+                                <app-attachment [type]="'mobile'"
+                                    [attachment]="advertisement.attachment"
+                                     [cssClass]="'sponsorsBox-img'"
+                                ></app-attachment>
+                            </a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

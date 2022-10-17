@@ -1,0 +1,55 @@
+<!-- @format -->
+
+<div class="imacontainer">
+    <div class="subheader position-relative">
+        <div class="subheadings">
+            <h2 class="text-uppercase">Instant Vote</h2>
+        </div>
+        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
+    </div>
+    <div class="content-middle" *ngIf="isShowTime">
+        <div class="timer-container mx-auto">
+            <h3 class="timerhd text-center" *ngIf="left_time === 0">Contest Completed</h3>
+            <h3 class="timerhd text-center" *ngIf="left_time !== 0">Time Remaining</h3>
+            <countdown [config]="prettyConfig" *ngIf="left_time !== 0" class="timerblock"></countdown>
+        </div>
+    </div>
+    <div class="participateblock">
+        <div class="participate-inner">
+            <h2 class="text-center">Participating Contestants</h2>
+            <ul class="list-unstyled instaprofilelisting" *ngIf="users.length > 0 && !contestProgress">
+                <li *ngFor="let user of users">
+                    <a href="javascript:void(0)" [ngClass]="{'active': user.is_active}" (click)="chooseUser(user)">
+                        <app-attachment [type]="'mobile'" [attachment]="user.attachment" [cssClass]="'instantvoteimg'"></app-attachment>
+                    </a>
+                </li>
+            </ul>
+            <div class="contestent-individual mx-auto" *ngIf="contestProgress">
+                <ul class=" list-unstyled" *ngIf="userContests.length > 0">
+                    <li *ngFor="let userContest of userContests">
+                        <div class="contprofileleft">
+                            <a href="javascript:void(0)">
+                                <app-attachment [type]="'mobile'"
+                            [attachment]="userContest.user.attachment"
+                            
+                            [cssClass]="'instantvoteimg'"
+                        ></app-attachment>
+                            </a>
+                        </div>
+                        <div class="contestant-details">
+                            <h2>{{userContest.user.first_name}} {{userContest.user.last_name}}</h2>
+                            <div class="progressmain">
+                                <div class="progressbar" >
+                                    <span [ngStyle]="{'width': userContest.percentage}"></span>
+                                </div>
+                                <span class="progressvotes">
+                                    {{userContest.instant_votes}}<span>votes</span>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

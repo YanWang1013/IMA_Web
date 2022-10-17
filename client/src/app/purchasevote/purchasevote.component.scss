@@ -1,0 +1,217 @@
+.purchasecontainer {
+    max-width: 1490px;
+    width: 100%;
+}
+
+.purchase-contimg {
+    overflow: hidden;
+}
+
+.purchase-contesttitle {
+    font-size: 46px;
+    color: #fff;
+    font-family: "Rozha One", serif;
+}
+
+.votepurchase-listing {
+    li {
+        border-bottom: 1px solid #333;
+    }
+    &:last-child {
+        li {
+            border-bottom: 0;
+        }
+    }
+    h2 {
+        font-weight: 300;
+        font-size: 40px;
+        color: white;
+        margin: 0;
+    }
+    p {
+        font-size: 32px;
+        color: lightgrey;
+        margin: 0;
+    }
+    .purchase-amount {
+        font-weight: 300;
+        font-size: 36px;
+    }
+    .purchase-btn {
+        font-size: 24px;
+        font-weight: 300;
+    }
+}
+
+@media (max-width: 1900px) {
+    .votepurchase-listing {
+        margin: 0;
+        li {
+            padding: 0;
+            display: inline-block;
+            width: 100%;
+        }
+        h2 {
+            color: #fff;
+            font-weight: 400;
+            line-height: 1;
+            word-break: break-word;
+            font-size: 30px;
+            padding-top: 20px;
+        }
+        p {
+            font-size: 20px;
+            color: #808080;
+            padding-top: 10px;
+        }
+        .purchase-amount {
+            font-size: 42px;
+        }
+        .purchase-btn {
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .purchase-contimg {
+        max-width: 280px;
+    }
+    .purchase-contesttitle {
+        text-align: center;
+    }
+    .votepurchase-listing {
+        li {
+            .row.mt-5 {
+                margin-top: 0 !important;
+            }
+        }
+        h2 {
+            font-size: 30px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .purchase-amount {
+            font-size: 30px;
+        }
+        .purchase-btn {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .purchase-contimg {
+        max-width: 200px;
+    }
+    .votepurchase-listing {
+        li {
+            text-align: center;
+            >.row {
+                margin-top: 0 !important;
+            }
+            h2 {
+                margin: 0 !important;
+                font-size: 24px;
+            }
+            p {
+                font-size: 14px;
+            }
+            .purchase-amount {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+.btnSuccess {
+    background-color: #c25582;
+    border: 1px solid #c25582;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 0;
+    margin-top: 10px;
+    transition: all 0.4s linear 0s;
+    &:focus {
+        background-color: #c25582;
+        border: 1px solid #c25582;
+        color: #fff;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 10px 25px;
+        border-radius: 0;
+        margin-top: 10px;
+        transition: all 0.4s linear 0s;
+    }
+    &:hover {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: #c25582;
+    }
+}
+
+.textSuccess {
+    color: #fff;
+}
+
+////Inner Banner Start
+.innerBanners {
+    background-image: url(../../assets/images/innerBanners.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: #fff;
+}
+
+.innerBanners_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+}
+
+.innerBanners_box {
+    z-index: 1;
+    text-align: center;
+    h1 {
+        font-size: 46px;
+        padding-bottom: 8px;
+    }
+    ul {
+        margin-left: -40px;
+    }
+    li {
+        display: inline-block;
+        font-family: 'Lusitana', serif;
+        padding: 0 25px;
+        font-weight: 800;
+        a {
+            color: #a9a9a9;
+            &:focus {
+                color: #a9a9a9;
+            }
+            &:hover {
+                color: #ef90a4;
+            }
+        }
+        p {
+            color: #ef90a4;
+        }
+    }
+}
+
+@media (max-width: 798px) {
+    .innerBanners_box {
+    }
+}
+
+////Inner Banner End

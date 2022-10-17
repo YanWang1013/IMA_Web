@@ -1,0 +1,765 @@
+@format -->
+<!-- <div class="imacontainer">
+    <div class="subheader position-relative">
+        <div class="subheadings">
+            <h2 class="text-uppercase">Shop</h2>
+        </div>
+        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
+    </div>
+    <div class="content-middle shop-section position-relative">
+        <div class="shopsearch position-relative mt-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <div class="row align-items-center shoptopsearch">
+                            <div class="col-md-4 my-1 searchinput position-relative">
+                                <input type="text" class="form-control" [(ngModel)]="q"
+                                    [ngModelOptions]="{standalone: true}" id="inlineFormInputName"
+                                    placeholder="Search for items" />
+                                <span class="search-icon"></span>
+                            </div>
+                            <div class="col-md-4 my-1 shopfilter position-relative" *ngIf="!isMyproduct">
+                                <div ngbDropdown class="d-inline-block filterddown dropdown">
+                                    <button type="button" class="btn btn-outline-primary"
+                                        ngbDropdownToggle>{{filterBy}}</button>
+                                    <div ngbDropdownMenu>
+                                        <button type="button" class="dropdown-item"
+                                            (click)="role(0, 'Filter By All')">Filter By All</button>
+                                        <button type="button" class="dropdown-item"
+                                            (click)="role(1, 'Filter By Contestant')">Filter By Contestant</button>
+                                        <button type="button" class="dropdown-item"
+                                            (click)="role(2, 'Filter By IMA')">Filter By IMA</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-auto my-1 shop-srbtn">
+                                <button type="button" (click)="getProducts()" class="btn pryBtn">
+                                    Search
+                                </button>
+                            </div>
+
+                            <div class="col-md-1 topcartright">
+                                <div class="cartsection text-center" *ngIf="!isMyproduct">
+                                    <div class="position-relative pull-right" [routerLink]="['/cart']">
+                                        <i class="fa fa-shopping-cart pryColor" aria-hidden="true"></i>
+                                        <span class="rounded-circle cartcount"
+                                            *ngIf="productList && productList.cart_count && productList.cart_count !== 0">{{productList.cart_count}}</span>
+                                    </div>
+                                </div>
+                                <div class="cartsection text-center" *ngIf="isMyproduct">
+                                    <button type="button" [routerLink]="['/addproduct']" class="btn secBtn text-uppercase">
+                                        Add Products
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row shoplisting"
+            *ngFor="let product of productDetails; let productIndex = index; trackBy: trackById">
+            <div class="col-lg-7 col-md-6">
+                <div class="cartimglisting d-flex">
+                    <div class="mr-3 cartmiouter">
+                        <div class="cartmainimage position-relative">
+                            <app-attachment [type]="'mobile'" [attachment]="product.showDetail.panelImage" 
+                                [cssClass]="'shopattimage'"></app-attachment>
+                            <a href="javascript:void(0)" (click)="redirect(product.user)" class="cartuserimg">
+                                <app-attachment [type]="'mobile'" *ngIf="product.user" [attachment]="product.user.attachment" 
+                                    [cssClass]="'rounded-circle'"></app-attachment>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cartlistthumbnails" *ngIf="product.showDetail.attachments.length > 1">
+                        <span *ngFor="let attachmentDetail of product.showDetail.attachments; let thumbnailIndex = index;">
+                            <span href="javascript:void(0)" class="mb-3 thumbnail-span" *ngIf="thumbnailIndex < 4"
+                                (click)="changeImage(product, attachmentDetail)" >
+                                    <app-attachment [type]="'mobile'" [attachment]="attachmentDetail" 
+                                        [cssClass]="'shopattimage'"></app-attachment>
+                            </span>
+                        </span>
+                        <span class="thumbnail-span" (click)="open(mymodal, product.showDetail.attachments)" *ngIf="product.showDetail.attachments.length > 4">
+                            View More
+                        </span>
+                    </div>
+                </div>
+                <div class="slectcolors">
+                    <span class="text-uppercase availcoltext mr-3">Available Colors</span>
+                    <span>
+                        <a *ngFor="let color of product.colors; let i = index;trackBy: trackById"
+                            href="javascript:void(0)" (click)="changeDetail(productIndex, i)"
+                            [ngClass]="{'active': color.isactive}" [ngStyle]="{'background-color': color.color}"
+                            class="availcolorsselect ml-2"></a>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <form>
+                    <div class="productcartdesc">
+                        <h2 class="m-0 mb-1 p-0 text-truncate">
+                            {{ product.name }}
+                        </h2>
+                        <p>
+                            {{ product.description }}
+                        </p>
+                    </div>
+                    <div class="product-availsizes pt-2" *ngIf="product.showDetail.sizes.length > 0">
+                        <p class="text-uppercase ctqtytext"><b>Available Sizes</b></p>
+                        <a href="javascript:void(0)" class="text-uppercase" [ngClass]="{'active': size.isactive}"
+                            *ngFor="let size of product.showDetail.sizes"
+                            (click)="chooseSize(size, product)">{{size.size.name}}</a>
+                    </div>
+                    <div class="shopqtyarea d-flex">
+                        <div class="cartquantity text-center">
+                            <p class="text-uppercase ctqtytext"><b>Quantity</b></p>
+                            <div class="ctquantityinput">
+                                <button type="button" class="ctqtydecr" (click)="removeQuantity(product)"></button>
+                            <span *ngIf="!isMyproduct"
+                                    class="quantityinput">{{product.showDetail.cart && product.showDetail.cart.quantity ? product.showDetail.cart.quantity : 0 }}</span>
+                                    <span *ngIf="isMyproduct && product.showDetail.cart.quantity === 0"
+                                    class="quantityinput">{{ product.showDetail.amount_detail.quantity }}</span>
+                                    <span *ngIf="isMyproduct && product.showDetail.cart.quantity !== 0"
+                                    class="quantityinput">{{ product.showDetail.cart.quantity }}</span>
+                                <button type="button" class="ctqtyincr" (click)="addQuantity(product)"></button>
+                            </div>
+                            <h6 class="quntyremain" *ngIf="!isMyproduct">
+                                Only {{ product.showDetail.amount_detail.quantity}} items left
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-1">
+                        <div class="d-flex flex-column cartdetails">
+                            <p class="discount-details m-0 mt-3"
+                                *ngIf="product.showDetail.amount_detail.discount_percentage">
+                                <span>{{ product.showDetail.amount_detail.discount_percentage}}%
+                                    discount</span>&nbsp;<span
+                                    *ngIf="!product.showDetail.cart.coupon.isValid">available</span> <span
+                                    *ngIf="product.showDetail.cart.coupon.isValid">applied</span>
+
+                            </p>
+                            <input *ngIf="!isMyproduct && product.showDetail.amount_detail.discount_percentage"
+                                [(ngModel)]="product.showDetail.cart.coupon.coupon_code"
+                                [ngModelOptions]="{standalone: true}" class="discountcode"
+                                placeholder="Enter Code" />
+                            <span *ngIf="isMyproduct && product.showDetail.amount_detail.discount_percentage"> <label>Coupon Code : </label> {{product.showDetail.amount_detail.coupon_code}}</span>  
+                            <button *ngIf="!isMyproduct" class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                {{ product.showDetail.amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}
+                            </button>
+                            <button *ngIf="isMyproduct" class="btn btn-primary cart-btn mt-4" type="button" (click)="addToCart(product)">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                {{ product.showDetail.amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="content-middle contestants-section" *ngIf="isNodata">
+        <div class="row mb-4">
+            <div class="col-md-7">
+                No Records
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <button
+            type="button"
+            class="close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+        >
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-attachment [type]="'mobile'" [attachment]="attachments[attachmentIndex]"  [cssClass]="'profilefirstimg'"></app-attachment>
+        <button class="btn btn-primary" (click)="prev()" type="button" *ngIf="attachmentIndex !== 1"><<Prev</button>
+        <button class="btn btn-primary" (click)="next()" type="button" *ngIf="(attachmentIndex+1) < attachments.length">>>Next</button>
+    </div>
+</ng-template> -->
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Single Product</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)" [routerLink]="['/']">HOME</a></li>
+                        <li><a href="javascript:void(0)">SHOP</a></li>
+                        <li><p>SINGLE PRODUCTS</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- Shop Product Start -->
+<section class="secProduct">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="proFilter">           
+                    <div class="mediaFilter">
+                        <h2>Your Cart</h2>
+                        <div class="mediaFilter_box">
+                            <div class="mediaLeft">
+                                <a href="javascript:void(0)">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                </a>
+                            </div>
+
+                            <div class="mediaContent">                       
+                                <a href="javascript:void(0)">At vero eos accusam</a>                      
+                                <p class="amount">1 × <span>$49.95</span></p>
+                            </div>
+                        </div>
+                        <div class="mediaFilter_box">
+                            <div class="mediaLeft">
+                                <a href="javascript:void(0)">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                </a>
+                            </div>
+
+                            <div class="mediaContent">                       
+                                <a href="javascript:void(0)">At vero eos accusam</a>                      
+                                <p class="amount">1 × <span>$49.95</span></p>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" class="mediaBtn">View cart</a>
+                    </div>
+                    <!-- <div class="cateFilter">
+                        <h2>All Categories</h2>
+                        <ul class="cateFilter_links">
+                            <li>
+                                <a href="javascript:void(0)" title="">Brisket turkey jerky</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" title="">Pig ham shank strip</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" title="">Beef picanha venison</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" title="">Picanha spare ribs</a>
+                            </li>
+                        </ul>
+                    </div> -->
+                    <!-- <div class="recentFilter">
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Popular</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Recent</a>
+                        </div>
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">At vero eos accusam</a>                      
+                                        <p class="amount">$49.95</p>
+                                    </div>
+                                </div> 
+                                <div class="clearfix"></div>
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">Lorem Ipsum ametsd</a>                      
+                                        <p class="amount">$29.95</p>
+                                    </div>
+                                </div> 
+                                <div class="clearfix"></div>
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">Nam libero tempore</a>                      
+                                        <p class="amount">$36.95</p>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">At vero eos accusam</a>                      
+                                        <p class="amount">$49.95</p>
+                                    </div>
+                                </div> 
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">Lorem Ipsum ametsd</a>                      
+                                        <p class="amount">$29.95</p>
+                                    </div>
+                                </div> 
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">Nam libero tempore</a>                      
+                                        <p class="amount">$36.95</p>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="singleProduct">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="zoomHover">
+                                <a href="javascript:void(0)">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid zoomHoverimg">
+                                </a>
+                                <span class="newproduct">New</span>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="row mt-2">
+                                <div class="col-md-4 mobSlider">
+                                    <div class="zoomHover mt-3">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid zoomHovercap">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mobSlider">
+                                    <div class="zoomHover mt-3">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid zoomHovercap">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mobSlider">
+                                    <div class="zoomHover mt-3">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid zoomHovercap">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="proitemTitle pb-2">
+                                <h3>Item Title</h3>
+                                <!-- <div class="proitemTitle_star">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                </div>
+                                <a href="javascript:void(0)">3 review(s)</a> | <a href="javascript:void(0)">Add Review</a> -->
+                            </div>
+                            <hr class="proLine mb-4">
+                            <div class="proCatdesc pt-2">
+                                <div class="pb-4">Categories: <a href="javascript:void(0)">PRODUCT CAT</a></div>
+                                <p class="pt-2 pb-3">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                            </div>
+                            <hr class="proLine">
+                            <div class="proRate">
+                                <del>
+                                    <span class="amount">$339.00</span>
+                                </del> 
+                                <ins>
+                                    <span class="amount">$299.00</span>
+                                </ins>
+                            </div>
+                            <hr class="proLine">
+                            <div class="proStock py-2">
+                                <p>Availability: <span>In Stock</span></p>
+                                <!-- <a href="javascript:void(0)">Email to a Friend</a> -->
+                            </div>
+                            <hr class="proLine">
+                            <div class="proSpec">
+                                <form class="cart" method="post">
+                                    <div class="form-group pb-3">
+                                        <label for="product_size" class="grey">Size</label>
+                                        <span class="red">*</span>
+                                        <select class="form-control" id="product_size">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                    <div class="slectcolors pb-4">
+                                        <span class="product-option-name">Available Colors</span>
+                                        <span class="red">*</span>
+                                        <span>
+                                            <!-- <a *ngFor="let color of product.colors; let i = index;trackBy: trackById"
+                                                href="javascript:void(0)" (click)="changeDetail(productIndex, i)"
+                                                [ngClass]="{'active': color.isactive}" [ngStyle]="{'background-color': color.color}"
+                                                class="availcolorsselect ml-2"></a> -->
+                                        </span>
+                                    </div>
+                                    <!-- <span class="product-option-name grey">Color</span>
+                                    <span class="red">*</span>
+                                    <div class="radio pt-3">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked=""> Grey
+                                        </label>
+                                    </div>
+                                    <div class="radio pb-4">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Magenta
+                                        </label>
+                                    </div> -->
+
+                                    <!-- <span class="product-option-name grey">Other Options</span>
+
+                                    <div class="checkbox pt-3">
+                                        <label>
+                                            <input type="checkbox" value=""> Option one
+                                        </label>
+                                    </div>
+                                    <div class="checkbox pb-4">
+                                        <label>
+                                            <input type="checkbox" value=""> Option two
+                                        </label>
+                                    </div> -->
+
+
+                                    <!-- <span class="product-option-name grey">Select Delivery Date</span>
+
+                                    <div class="form-inline mt-2 mb-4">
+                                        <div class="form-group mx-2">
+                                            <select class="form-control">
+                                                <option value="" selected="">-</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                                <option value="">6</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group mx-2">
+                                            <select class="form-control">
+                                                <option value="" selected="">-</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                                <option value="">6</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group mx-2">
+                                            <select class="form-control">
+                                                <option value="" selected="">-</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                <option value="">3</option>
+                                                <option value="">4</option>
+                                                <option value="">5</option>
+                                                <option value="">6</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <span class="product-option-name grey">Additional Comment</span>
+
+                                    <textarea class="form-control mt-2" rows="3"></textarea>
+                                    <p class="labText">Maximum number of characters: <span id="char_left">500</span></p>-->
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="grey" for="product_quantity">Qty:</label>
+                                            <input type="number" class="form-control" value="1">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="submit" class="mediaBtn mt-4 pull-right" value="BUY">
+                                        </div>
+                                    </div> 
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- <div class="proReviews">
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Details</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Additional</a>
+                            <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-controls="nav-reviews" aria-selected="false">Reviews</a>
+                            <a class="nav-item nav-link" id="nav-custom-tab" data-toggle="tab" href="#nav-custom" role="tab" aria-controls="nav-custom" aria-selected="false">Custom</a>
+                        </div>
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="proDet">
+                                    <p>Duis autem veiudolorn hendrerit vulputate velit esse molestie. consequat, vel illum dolore eu feugiat nulla facilisis at vereros accumsan etiusto dignissim:</p>
+                                    <ul class="darklinks">
+                                        <li>
+                                            <a href="javascript:void(0)">Lorem ipsum dolor sit amet</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Sint animi non ut sed</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Eaque blanditiis nemo</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Amet, consectetur adipisicing</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">Blanditiis nemo quaerat</a>
+                                        </li>
+                                    </ul>
+                                    <p class="px-2"><span class="red">Warning!</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="proAddition">
+                                    <table class="table table-striped mt-3">
+                                        <tbody>
+                                            <tr>
+                                                <th>Product title:</th>
+                                                <td>Product Name</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Item SKU:</th>
+                                                <td>5552281538</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Brand:</th>
+                                                <td><a href="javascript:void(0)">Brand Name</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Style:</th>
+                                                <td>SuperStyle</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Size:</th>
+                                                <td>Middle</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Color:</th>
+                                                <td>Black</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Targeted Group:</th>
+                                                <td>All</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+                                <div class="proRevsec">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row cardInner1">
+                                                <div class="col-md-2">
+                                                    <div class="mediaObject">
+                                                        <img class="img-fluid" src="assets/images/reviewimg1.jpg"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="author_url" rel="external nofollow" href="javascript:void(0)">Alan Smith</a><br>
+                                                    <span class="commentDate pb-3">
+                                                        <time datetime="2017-11-08T15:05:23+00:00" class="entry-date">22.11.2017 at 12:34</time>
+                                                    </span>
+
+                                                    <div class="mb-3">  
+                                                        <div class="float-left">
+                                                            <span class="pr-2">Customer Rating: </span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                        </div>
+                                                        <a href="javascript:void(0)" class="float-right"><i class="fa fa-reply"></i></a>
+                                                    </div>
+                                                   <div class="clearfix"></div>
+                                                    <p class="pt-2">First Level Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p> 
+                                                </div>
+                                            </div>
+                                            <div class="row cardInner2">
+                                                <div class="col-md-2">
+                                                    <div class="mediaObject">
+                                                        <img class="img-fluid" src="assets/images/reviewimg1.jpg"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="author_url" rel="external nofollow" href="javascript:void(0)">Alan Smith</a><br>
+                                                    <span class="commentDate pb-3">
+                                                        <time datetime="2017-11-08T15:05:23+00:00" class="entry-date">22.11.2017 at 12:34</time>
+                                                    </span>
+
+                                                    <div class="mb-3">  
+                                                        <div class="float-left">
+                                                            <span class="pr-2">Customer Rating: </span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                        </div>
+                                                        <a href="javascript:void(0)" class="float-right"><i class="fa fa-reply"></i></a>
+                                                    </div>
+                                                   <div class="clearfix"></div>
+                                                    <p class="pt-2">First Level Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p> 
+                                                </div>
+                                            </div>
+                                            <div class="row cardInner3">
+                                                <div class="col-md-2">
+                                                    <div class="mediaObject">
+                                                        <img class="img-fluid" src="assets/images/reviewimg1.jpg"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="author_url" rel="external nofollow" href="javascript:void(0)">Alan Smith</a><br>
+                                                    <span class="commentDate pb-3">
+                                                        <time datetime="2017-11-08T15:05:23+00:00" class="entry-date">22.11.2017 at 12:34</time>
+                                                    </span>
+
+                                                    <div class="mb-3">  
+                                                        <div class="float-left">
+                                                            <span class="pr-2">Customer Rating: </span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                        </div>
+                                                        <a href="javascript:void(0)" class="float-right"><i class="fa fa-reply"></i></a>
+                                                    </div>
+                                                   <div class="clearfix"></div>
+                                                    <p class="pt-2">First Level Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p> 
+                                                </div>
+                                            </div>
+                                            <div class="row cardInner1">
+                                                <div class="col-md-2">
+                                                    <div class="mediaObject">
+                                                        <img class="img-fluid" src="assets/images/reviewimg1.jpg"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="author_url" rel="external nofollow" href="javascript:void(0)">Alan Smith</a><br>
+                                                    <span class="commentDate pb-3">
+                                                        <time datetime="2017-11-08T15:05:23+00:00" class="entry-date">22.11.2017 at 12:34</time>
+                                                    </span>
+
+                                                    <div class="mb-3">  
+                                                        <div class="float-left">
+                                                            <span class="pr-2">Customer Rating: </span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                        </div>
+                                                        <a href="javascript:void(0)" class="float-right"><i class="fa fa-reply"></i></a>
+                                                    </div>
+                                                   <div class="clearfix"></div>
+                                                    <p class="pt-2">First Level Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p> 
+                                                </div>
+                                            </div>
+                                            <div class="row cardInner1">
+                                                <div class="col-md-2">
+                                                    <div class="mediaObject">
+                                                        <img class="img-fluid" src="assets/images/reviewimg1.jpg"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <a class="author_url" rel="external nofollow" href="javascript:void(0)">Alan Smith</a><br>
+                                                    <span class="commentDate pb-3">
+                                                        <time datetime="2017-11-08T15:05:23+00:00" class="entry-date">22.11.2017 at 12:34</time>
+                                                    </span>
+
+                                                    <div class="mb-3">  
+                                                        <div class="float-left">
+                                                            <span class="pr-2">Customer Rating: </span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                            <span class="float-right"><i class="fa fa-star"></i></span>
+                                                        </div>
+                                                        <a href="javascript:void(0)" class="float-right"><i class="fa fa-reply"></i></a>
+                                                    </div>
+                                                   <div class="clearfix"></div>
+                                                    <p class="pt-2">First Level Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div>
+                                        <h3 class="pb-4">Write Your Own Review</h3>
+                                        <div class="clearfix">                                            
+                                            <div class="rating">
+                                                <span class="pr-2">Your rating:</span>
+                                                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Meh">5 stars</label>
+                                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Kinda bad">4 stars</label>
+                                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Kinda bad">3 stars</label>
+                                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Sucks big tim">2 stars</label>
+                                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                                            </div>
+                                        </div>
+                                        <form class="comment-form" id="commentform" method="post" action="">
+                                            <div class="row columns_margin_bottom_30">
+                                                <div class="col-md-6 mt-2">
+                                                    <input type="text" aria-required="true" size="30" value="" name="author" id="author" class="form-control" placeholder="Full Name">
+                                                </div>
+                                                <div class="col-md-6 mt-2">
+                                                    <input type="email" aria-required="true" size="30" value="" name="comment_email" id="comment_email" class="form-control" placeholder="Email Address">
+                                                </div>
+                                                <div class="col-md-12 mt-4">
+                                                    <textarea aria-required="true" rows="8" cols="45" name="comment" id="comment" class="form-control" placeholder="Review"></textarea>
+                                                </div>
+                                            </div>                                            
+                                            <button type="submit" id="submit" name="submit" class="subBtn mt-4">Submit Review</button>
+                                            <button type="reset" id="reset" class="cancelBtn mt-4">Clear Form</button>                                            
+                                        </form>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="tab-pane fade " id="nav-custom" role="tabpanel" aria-labelledby="nav-custom-tab">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>  
+                            </div>
+                        </div>
+                    </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Product End -->
+<!-- New Design End -->

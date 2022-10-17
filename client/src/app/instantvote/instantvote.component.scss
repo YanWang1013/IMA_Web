@@ -1,0 +1,370 @@
+.timer-container {
+    max-width: 1046px;
+    width: 100%;
+}
+
+.timerhd {
+    font-size: 62px;
+    font-weight: 300;
+    color: #b8b8b8;
+}
+
+.timerblock {
+    >span {
+        background: #181c30;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 300;
+        padding: 35px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .timings {
+        .count {
+            font-size: 150px;
+            line-height: 160px;
+        }
+        .timetext {
+            font-size: 25px;
+            line-height: 25px;
+            display: block;
+        }
+    }
+    .timecolan {
+        font-size: 150px;
+        line-height: 150px;
+        padding: 0;
+    }
+}
+
+.participateblock {
+    background-color: #f4f4f4;
+    .participate-inner {
+        padding: 70px 145px;
+        h2 {
+            font-size: 63px;
+            color: #b8b8b8;
+            font-weight: 300;
+            margin: 0 0 40px;
+        }
+    }
+    ul.instaprofilelisting {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0 80px;
+        li {
+            width: 16%;
+            padding: 0 30px;
+            margin: 0 0 60px;
+        }
+    }
+    .voteblock {
+        .vote-btn {
+            width: 714px;
+            height: 126px;
+            font-size: 62px;
+            font-weight: 300;
+        }
+    }
+}
+
+
+/*individual starts */
+
+.contestent-individual {
+    max-width: 1046px;
+    li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 50px;
+        .contprofileleft {
+            padding: 0 30px 0 0;
+            margin: 0;
+            img {
+                border-radius: 50px;
+                width: 198px;
+                height: auto;
+            }
+        }
+        .contestant-details {
+            flex: 1 1 0;
+            h2 {
+                font-size: 41px;
+                color: #181c30;
+                font-weight: 300;
+                margin: 0;
+            }
+            .progressmain {
+                .progressbar {
+                    background-color: #dbdbdb;
+                    height: 40px;
+                    border-radius: 50px;
+                    position: relative;
+                    overflow: hidden;
+                    span {
+                        width: 0%;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        position: absolute;
+                        z-index: 9;
+                        background-color: #181c30;
+                    }
+                }
+                .progressvotes {
+                    font-size: 41px;
+                    color: #181c30;
+                    font-weight: 600;
+                    position: relative;
+                    left: 0;
+                    >span {
+                        font-weight: 300;
+                        font-size: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// overwrite styles
+.instaprofilelisting a.active {
+    display: inline-block;
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+
+/*individual ends */
+
+@media (max-width: 1900px) {
+    .timer-container {
+        max-width: 786px;
+    }
+    .timerhd {
+        font-size: 46px;
+    }
+    .timerblock {
+        border-radius: 10px;
+        padding: 35px 0;
+        .timings {
+            .count {
+                font-size: 112px;
+                line-height: 112px;
+            }
+            .timetext {
+                font-size: 18px;
+                line-height: 18px;
+            }
+        }
+        .timecolan {
+            font-size: 112px;
+            line-height: 112px;
+        }
+    }
+    .participateblock {
+        .participate-inner {
+            padding: 50px 90px;
+            h2 {
+                font-size: 46px;
+                margin: 0 0 30px;
+            }
+        }
+        ul.instaprofilelisting {
+            margin: 0 0 60px;
+            li {
+                width: 16%;
+                padding: 0 22px;
+                margin: 0 0 40px;
+                img {
+                    border-radius: 30px;
+                }
+            }
+        }
+        .voteblock {
+            .vote-btn {
+                width: 534px;
+                height: 92px;
+                font-size: 46px;
+            }
+        }
+    }
+    /*individual starts */
+    .contestent-individual {
+        max-width: 786px;
+        li {
+            margin: 0 0 50px;
+            .contprofileleft {
+                padding: 0 20px 0 0;
+                img {
+                    border-radius: 30px;
+                    width: 170px;
+                }
+            }
+            .contestant-details {
+                h2 {
+                    font-size: 31px;
+                }
+                .progressmain {
+                    .progressbar {
+                        height: 30px;
+                        border-radius: 50px;
+                    }
+                    .progressvotes {
+                        font-size: 31px;
+                        >span {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*individual ends */
+}
+
+@media (max-width: 1199px) {
+    .timer-container {
+        max-width: 550px;
+    }
+    .timerhd {
+        font-size: 40px;
+    }
+    .participateblock {
+        .participate-inner {
+            padding: 30px 50px;
+            h2 {
+                font-size: 30px;
+                margin: 0 0 30px;
+            }
+        }
+        ul.instaprofilelisting {
+            margin: 0 0 40px;
+            li {
+                width: 20%;
+                padding: 0 18px;
+                margin: 0 0 30px;
+                img {
+                    border-radius: 20px;
+                }
+            }
+        }
+        .voteblock {
+            .vote-btn {
+                width: 445px;
+                height: 76px;
+                font-size: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .timer-container {
+        max-width: 300px;
+    }
+    .timerhd {
+        font-size: 30px;
+    }
+    .timerblock {
+        padding: 20px 0;
+        .timings {
+            .count {
+                font-size: 50px;
+                line-height: 60px;
+            }
+            .timetext {
+                font-size: 12px;
+                line-height: 15px;
+            }
+        }
+        .timecolan {
+            font-size: 50px;
+            line-height: 50px;
+        }
+    }
+    .participateblock {
+        .participate-inner {
+            padding: 15px;
+            h2 {
+                font-size: 30px;
+                margin: 0 0 25px;
+            }
+        }
+        ul.instaprofilelisting {
+            margin: 0 0 40px;
+            li {
+                width: 33%;
+                padding: 0 10px;
+                margin: 0 0 30px;
+                img {
+                    border-radius: 20px;
+                }
+            }
+        }
+        .voteblock {
+            .vote-btn {
+                width: 360px;
+                height: 60px;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    /*individual starts */
+    .contestent-individual {
+        li {
+            margin: 0 0 15px;
+            .contprofileleft {
+                padding: 0 15px 0 0;
+                img {
+                    border-radius: 15px;
+                    width: 120px;
+                }
+            }
+            .contestant-details {
+                h2 {
+                    font-size: 18px;
+                }
+                .progressmain {
+                    .progressbar {
+                        height: 25px;
+                        border-radius: 50px;
+                    }
+                    .progressvotes {
+                        font-size: 18px;
+                        >span {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*individual ends */
+}
+
+@media (max-width: 480px) {
+    .participateblock {
+        ul.instaprofilelisting {
+            margin: 0 0 20px;
+            li {
+                width: 50%;
+                padding: 0 5px;
+                margin: 0 0 12px;
+                img {
+                    border-radius: 10px;
+                }
+            }
+        }
+        .voteblock {
+            .vote-btn {
+                width: 100%;
+            }
+        }
+    }
+}

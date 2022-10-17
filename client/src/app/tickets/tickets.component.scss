@@ -1,0 +1,91 @@
+.advertlisting {
+    .advertimg {
+        display: inline-block;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+    .advertmaincontent {
+        margin: 180px 0 0;
+        width: 100%;
+        h2 {
+            font-size: 75px;
+            color: #696969;
+            font-weight: 300;
+        }
+        p {
+            font-size: 25px;
+            color: #696969;
+        }
+    }
+    .purchasbtn {
+        font-size: 25px;
+        color: #fff;
+        font-weight: 300;
+    }
+    .adertindlist {
+        margin: 0 0 30px;
+    }
+}
+
+.ticketSec {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    img {
+        border: 1px solid #eee;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+.ticketSec-p {
+    font-size: 16px !important;
+    span {
+        font-weight: 600;
+        font-size: 18px !important;
+    }
+}
+
+.purchasBtn {
+    font-size: 16px !important;
+}
+
+@media (max-width: 1900px) {
+    .advertlisting {
+        .advertmaincontent {
+            margin: 0;
+            h2 {
+                font-size: 56px;
+            }
+            p {
+                font-size: 18px;
+            }
+        }
+        .advertimg {
+            app-attachment {
+                img {
+                    max-height: 380px;
+                }
+            }
+        }
+        .purchasebtn {
+            margin: 0 !important;
+        }
+        .purchasbtn {
+            font-size: 22px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .advertlisting {
+        .advertmaincontent {
+            h2 {
+                font-size: 30px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}

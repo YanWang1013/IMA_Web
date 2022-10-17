@@ -1,0 +1,219 @@
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Cart</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)" [routerLink]="['/']">HOME</a></li>
+                        <li><p>CART</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<div class="imacontainer">
+    <div class="content-middle cart-middle">
+        <ul class="cartinner list-unstyled">
+            <li
+                *ngFor="
+                    let product of productDetails;
+                    let productIndex = index;
+                    trackBy: trackById
+                "
+            >
+                <div class="row">
+                    <div class="col-md-2">
+                        <app-attachment [type]="'mobile'"
+                            [attachment]="product.showDetail.panelImage"
+                            
+                            [cssClass]="'shopattimage'"
+                        ></app-attachment>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h5 class="prodtitle cartsubtitle text-uppercase">
+                            Product
+                        </h5>
+                        <h2 class="cartproducttitle text-truncate">
+                            {{ product.showDetail.product.name }}
+                        </h2>
+                        <p class="proddescription m-0">
+                            {{ product.showDetail.product.description }}
+                        </p>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="cartprice">
+                            <h5 class="cartsubtitle text-uppercase">
+                                Price
+                            </h5>
+                            <div class="" *ngIf="!product.coupon_id">
+                                <b>{{
+                                    (product.showDetail.amount_detail.price * product.showDetail.cart.quantity)
+                                        | currency
+                                            : settings.CURRENCY_CODE
+                                            : "symbol"
+                                }}</b>
+                            </div>
+                            <div class="" *ngIf="product.coupon_id">
+                                <b>{{
+                                    ((product.showDetail.amount_detail.price * product.showDetail.cart.quantity) - (((product.showDetail.amount_detail.discount_percentage / 100) * product.showDetail.amount_detail.price) * product.showDetail.cart.quantity)).toFixed(1)
+                                        | currency
+                                            : settings.CURRENCY_CODE
+                                            : "symbol"
+                                }}</b>
+                            </div>
+                            <h5 class="cartsubtitle text-uppercase pt-3">
+                                Discount Price
+                            </h5>
+                            <div class="" *ngIf="!product.coupon_id">
+                                <b>{{0 | currency : settings.CURRENCY_CODE : "symbol"}}</b>
+                            </div>   
+                            <div class="" *ngIf="product.coupon_id">
+                                <b>{{(((product.showDetail.amount_detail.discount_percentage / 100) * product.showDetail.amount_detail.price) * product.showDetail.cart.quantity).toFixed(1) | currency : settings.CURRENCY_CODE : "symbol"
+                                }}</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h5 class="cartsubtitle text-uppercase">
+                            Coupon Code
+                        </h5>
+                        <div class="cartprodamt text-center">
+                            <span *ngIf="isMyOrder">{{product.showDetail.cart.coupon.coupon_code}}</span>
+                            <input
+                                *ngIf="!isMyOrder &&
+                                    product.showDetail.amount_detail
+                                        .discount_percentage
+                                "
+                                [(ngModel)]="
+                                    product.showDetail.cart.coupon.coupon_code
+                                "
+                                (blur)="editCart(product)"
+                                [ngModelOptions]="{ standalone: true }"
+                                placeholder="Enter Code"
+                                class="form-control mt-3"
+                            />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 pt-3">
+                                <h5 class="cartsubtitle text-uppercase">
+                                    Color
+                                </h5>
+                                <div class="cartColor" [style.background]="product.showDetail.color.color"></div>
+                            </div>
+                            <div class="col-md-6 pt-3" *ngIf="product.size">
+                                <h5 class="cartsubtitle text-uppercase">
+                                    Size
+                                </h5>
+                                <div class="cartSize"><span>{{product.size.size.name}}</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h5 class="cartsubtitle text-uppercase">
+                            Quantity
+                        </h5>
+                        <div class="ctquantityinput mt-3" *ngIf="!isMyOrder">
+                            <button
+                                type="button"
+                                class="ctqtydecr"
+                                (click)="removeQuantity(product)"
+                            ></button>
+                            <span class="quantityinput">{{
+                                product.showDetail.cart &&
+                                product.showDetail.cart.quantity
+                                    ? product.showDetail.cart.quantity
+                                    : 0
+                            }}</span>
+                            <button
+                                type="button"
+                                class="ctqtyincr"
+                                (click)="addQuantity(product)"
+                            ></button>
+                        </div>
+                        <p
+                            class="mt-2 quntyremain m-0 qtyremain"
+                            *ngIf="!isMyOrder"
+                        >
+                            Only
+                            {{
+                                product.showDetail.amount_detail.quantity
+                            }}
+                            items left
+                        </p>
+                        <p class="mt-2 quntyremain m-0" *ngIf="isMyOrder">
+                            {{ product.showDetail.cart.quantity }}
+                        </p>
+
+                        <div class="pull-right mt-4">
+                            <span *ngIf="!isMyOrder">
+                                <button
+                                    type="button"
+                                    class="deleteCart"
+                                    (click)="deleteCart(product)"
+                                >
+                                    <i
+                                        class="fa fa-times"
+                                        aria-hidden="true"
+                                    ></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+            </li>
+        </ul>
+        <div class="cartupdate" *ngIf="!isMyOrder && productDetails && productDetails.length > 0">
+            <div class="checkout">
+                <div class="row">
+                    <div
+                        class="offset-xl-9 offset-md-8 col-xl-3 col-md-4 col-12 "
+                    >
+                        <h5 class="carttotal text-uppercase">Cart Total</h5>
+                        <div class="cartamount">
+                            {{
+                                totalAmount
+                                    | currency: settings.CURRENCY_CODE:"symbol"
+                            }}
+                        </div>
+                        <button
+                            type="button"
+                            *ngIf="sessionService.isAuth"
+                            (click)="checkout()"
+                            class="checkoutbtn btn btn-success text-uppercase"
+                        >
+                            Proceed to Checkout
+                        </button>
+                        <button
+                            type="button"
+                            *ngIf="!sessionService.isAuth"
+                            [routerLink]="['/login']"
+                            class="checkoutbtn btn btn-success text-uppercase"
+                        >
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cartupdate" *ngIf="!productDetails || productDetails.length === 0">
+            <div class="checkout">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-uppercase noRecord">No Records</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

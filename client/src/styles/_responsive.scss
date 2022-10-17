@@ -1,0 +1,33 @@
+@media screen and (max-width: 992px) {
+    .push-right {
+        .sidebar {
+            left: 235px !important;
+        }
+    }
+}
+
+@media screen and (min-width: 1400px) {}
+
+@media screen and (min-width: 1280px) {}
+
+@media screen and (max-width: 1199px) {}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media screen and (min-width: 1025px) and (max-width: 1199px) {}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        .main-container {
+            //margin-left: 60px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (min-width: 992px) and (max-width: 1024px) {}
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (max-width: 767px) {}

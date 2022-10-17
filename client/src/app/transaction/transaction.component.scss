@@ -1,0 +1,282 @@
+.accounthistory-section {
+    padding: 30px 120px;
+}
+.tabcontents {
+    background-color: #ededed;
+    padding: 10px 40px 10px 40px;
+}
+.accountlisting {
+    margin: 10px 0 0;
+    h2 {
+        font-size: 30px;
+        font-weight: 600;
+        margin: 0;
+        span {
+            font-size: 33px;
+            font-weight: 300;
+        }
+    }
+    .acvotepackage,
+    .acvotedate {
+        border-bottom: 1px solid #828282;
+        padding-bottom: 38px;
+    }
+    .acuserimage {
+        border-bottom: 1px solid transparent;
+
+        img {
+            max-width: 117px;
+            width: 100%;
+        }
+    }
+    .accountamount {
+        font-size: 30px;
+        line-height: normal;
+        margin: 0 0 8px;
+    }
+    .packagename {
+        font-size: 20px;
+    }
+    .accountdate {
+        font-size: 25px;
+    }
+}
+
+@media(max-width:1440px) {
+    .accounthistory-section {
+        padding: 60px;
+    }
+
+    .tabcontents {
+        padding: 35px;
+    }
+
+    .accountlisting {
+        margin: 36px 0 0;
+
+        h2 {
+            font-size: 31px;
+
+            span {
+                font-size: 25px;
+            }
+        }
+        .acvotepackage, .acvotedate{
+            padding-bottom: 30px;
+        }
+        .accountamount {
+            font-size: 31px;
+            margin: 0 0 5px;
+        }
+
+        .packagename {
+            font-size: 18px;
+        }
+
+        .accountdate {
+            font-size: 18px;
+        }
+    }
+}
+
+@media(max-width:991px) {
+    .accounthistory-section {
+        padding: 20px;
+    }
+
+    .tabcontents {
+        padding: 30px;
+    }
+
+    .accountlisting {
+        margin: 25px 0 0;
+
+        h2 {
+            font-size: 22px;
+
+            span {
+                font-size: 18px;
+            }
+        }
+        .acvotepackage, .acvotedate{
+            padding-bottom: 20px;
+        }
+        .accountamount {
+            font-size: 22px;
+            margin: 0 0 5px;
+        }
+
+        .packagename {
+            font-size: 15px;
+        }
+
+        .accountdate {
+            font-size: 15px;
+        }
+    }
+}
+
+@media(max-width:767px) {
+    .accountdate {
+        margin: 8px 0 0 !important;
+        text-align: left;
+    }
+    .accountlisting{
+        border-bottom: 1px solid #828282;
+        .acvotepackage, .acvotedate{
+            border: none;
+        }
+    }
+    .tabcontents {
+        padding: 15px;
+    }
+}
+
+@media(max-width:480px) {
+    .tabcontents {
+        margin: 5px 0 0;
+    }
+
+    .accountlisting {
+        margin: 25px 0 0;
+
+        h2 {
+            font-size: 18px;
+
+            span {
+                font-size: 15px;
+            }
+        }
+        .acvotepackage, .acvotedate{
+            padding-bottom: 20px;
+        }
+        .accountamount {
+            font-size: 18px;
+            margin: 0 0 5px;
+        }
+
+        .packagename {
+            font-size: 13px;
+        }
+
+        .accountdate {
+            font-size: 13px;
+        }
+    }
+}
+////New Style Start
+form label{
+    color: #808080;
+}
+.form-control {
+    background-color: transparent;
+    border-radius: 0;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    color: #808080;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.input-group-addon{
+    background:#fff;
+    border:none;
+    cursor: pointer;
+}
+.input-group-addon .fa-calendar:before {
+    content: "\f073";
+    color: #ef90a4;
+}
+.primaryBtn {
+  background-color: #c25582;
+  border: 1px solid #c25582;
+  color: #fff;
+  margin-left: 5px;
+  margin-top: 22px !important;
+  margin-bottom: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 29px;
+  transition: all 0.4s linear 0s;
+  cursor: pointer;
+
+  &:focus {
+    background-color: #c25582;
+    border: 1px solid #c25582;
+    color: #fff;
+    margin-left: 5px;
+    margin-top: 22px !important;
+    margin-bottom: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px 29px;
+    transition: all 0.4s linear 0s;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #c25582;
+  }
+}
+////Inner Banner Start
+.innerBanners {
+    background-image: url(../../assets/images/innerBanners.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: #fff;
+}
+.innerBanners_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+}
+.innerBanners_box {
+    z-index: 1;
+    text-align: center;
+    //padding: 120px 0 10px 0;
+    h1 {
+        font-size: 46px;
+        padding-bottom: 8px;
+    }
+    ul {
+        margin-left: -40px;
+    }
+    li {
+        display: inline-block;
+        font-family: 'Lusitana', serif;
+        padding: 0 25px;
+        font-weight: 800;
+        a {
+            color: #a9a9a9;
+            &:focus {
+                color: #a9a9a9;
+            }
+            &:hover {
+                color: #ef90a4;
+            }
+        }
+        p {
+            color: #ef90a4;
+        }
+    }
+}
+
+@media (max-width: 798px) {
+    .innerBanners_box {
+        //padding: 75px 0 50px 0;
+    }
+}
+////Inner Banner End

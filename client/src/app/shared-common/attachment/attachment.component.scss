@@ -1,0 +1,253 @@
+.contestantimg {
+    height: 510px;
+    object-fit: cover;
+    object-position: 100% 0;
+    width: 100%;
+    height: 100%;
+    // border-radius  : 20px;
+    border: 1px solid #eee;
+}
+
+.profiletopimg {
+    max-width: 100%;
+    width: 100%;
+    height: 550px;
+    max-width: 1274px;
+    object-fit: cover;
+    object-position: 100% 25%;
+}
+
+.profilecircleimg {
+    max-width: 550px;
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    object-position: 100% 0;
+}
+
+.profilefulllist {
+    max-width: 266px;
+    min-width: 266px;
+    width: 100%;
+    height: 266px;
+    object-fit: cover;
+    object-position: 100% 0;
+}
+
+.instantvoteimg {
+    border-radius: 50px;
+    height: 196px;
+    object-fit: cover;
+    object-position: 100% 0;
+    width: 100%;
+}
+
+.carouselimage {
+    height: 650px;
+}
+
+.profilefirstimg {
+    width: 800px;
+    height: 450px;
+    object-fit: cover;
+    object-position: 100% 22%;
+    border-radius: 5px;
+    padding-bottom: 5px;
+}
+
+.videosection {
+    position: relative;
+    .play-button {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
+        opacity: 0.7;
+    }
+}
+
+.video-display {
+    .modal-dialog {
+        max-width: 100%;
+    }
+}
+
+.sponsorsBox-img {
+    width: 280px !important;
+    height: 280px;
+}
+
+.hoverZoominimg {
+    width: 100% !important;
+    -o-object-fit: cover !important;
+    object-fit: cover !important;
+    height: 270px !important;
+    object-position: center;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        opacity: .8;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.zoomHoverimg {
+    width: 100% !important;
+    -o-object-fit: cover !important;
+    object-fit: cover !important;
+    height: 385px !important;
+    object-position: center;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        opacity: .8;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.zoomHovercap {
+    width: 100% !important;
+    -o-object-fit: cover !important;
+    object-fit: cover !important;
+    height: 105px !important;
+    object-position: center;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        opacity: .8;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+@media (max-width: 1900px) {
+    .contestantimg {
+        // max-width: 610px;
+        height: 230px;
+    }
+    .profiletopimg {
+        height: 400px;
+        opacity: .8;
+    }
+    .profilecircleimg {
+        max-width: 250px;
+        height: 250px;
+    }
+    .profilefulllist {
+        min-width: 135px;
+        max-width: 135px;
+        height: 135px;
+        margin: 2px;
+        border-radius: 5px;
+        border: 1px solid #eee;
+    }
+    .instantvoteimg {
+        border-radius: 30px;
+        height: 155px;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    .contestantimg {
+        max-width: 480px;
+        height: 247px;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .contestantimg {
+        max-width: 464px;
+        height: 226px;
+    }
+    .profiletopimg {
+        height: 300px;
+    }
+    .profilecircleimg {
+        max-width: 300px;
+        height: 300px;
+    }
+    .profilefulllist {
+        min-width: 115px;
+        max-width: 115px;
+        height: 115px;
+        margin: 2px;
+        border-radius: 5px;
+        border: 1px solid #eee;
+    }
+    .instantvoteimg {
+        border-radius: 20px;
+        height: 292px;
+    }
+}
+
+@media (max-width: 767px) {
+    .contestantimg {
+        max-width: 350px;
+        height: 210px;
+    }
+    .profiletopimg {
+        height: 350px;
+    }
+    .profilecircleimg {
+        max-width: 150px;
+        height: 150px;
+    }
+    .profilefulllist {
+        min-width: 145px;
+        max-width: 145px;
+        height: 145px;
+    }
+    .instantvoteimg {
+        height: 168px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contestantimg {
+        max-width: 100%;
+        height: 150px;
+    }
+    .profilefulllist {
+        min-width: 81px;
+        max-width: 82px;
+        height: 82px;
+    }
+    .instantvoteimg {
+        height: 140px;
+        border-radius: 10px;
+    }
+    .carouselimage {
+        height: inherit;
+    }
+    .profilefirstimg {
+        width: auto;
+        height: auto;
+        min-width: inherit;
+    }
+}

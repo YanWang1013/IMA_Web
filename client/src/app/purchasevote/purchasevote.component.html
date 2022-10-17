@@ -1,0 +1,67 @@
+<!-- Banner Start -->
+<section class="clearfix">
+    <div class="innerBanners_box">
+        <div class="subheader position-relative">
+            <div class="subheadings">
+                <h2> Purchase Vote </h2>
+            </div>
+            <img src="assets/images/contestant-headerbg.jpg" class="img-fluid">
+        </div>
+    </div>
+</section>
+<!--<section class="innerBanners">-->
+<!--    <div class="innerBanners_overlay"></div>-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--                <div class="innerBanners_box">-->
+<!--                    <h1>Purchase Vote</h1>-->
+<!--                    <img src="assets/images/contestant-headerbg.jpg" class="img-fluid">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!-- Banner End -->
+<div class="imacontainer">
+    <div class="content-middle">
+        <div class="purchasecontainer mx-auto px-4" *ngIf="user">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="purchase-contimg mx-auto">
+                        <app-attachment [type]="'mobile'"
+                            [attachment]="user.attachment"
+                            
+                        ></app-attachment>
+                    </div>
+                </div>
+                <div class="col-md-9 px-5">
+                    <h2 class="purchase-contesttitle">{{ user.first_name }} {{ user.last_name }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <ul class="list-unstyled votepurchase-listing" *ngFor="let votePackage of votePackages">
+                <li>
+                    <div class="row mt-5 mb-5">
+                        <div class="col-md-7">
+                            <h2>{{votePackage.name}}</h2>
+                            <p *ngIf="votePackage.id !== 6">Purchase {{votePackage.vote}} votes</p>
+                            <p *ngIf="votePackage.id === 6">Purchase {{customCount ? customCount : 0}} votes</p>
+                        </div>
+                        <div class="col-md-5 text-center">
+                            <input type="number" name="custom-count" class="btn"
+                            [(ngModel)]="customCount" minlength="2" maxlength="20000" *ngIf="votePackage.id === 6"/>
+                            <div class="textSuccess purchase-amount">
+                                <span *ngIf="votePackage.id !== 6">{{ votePackage.price | currency: settings.CURRENCY_CODE:'symbol' }}</span>
+                                <span *ngIf="votePackage.id === 6">{{customCount / votePackage.vote | currency: settings.CURRENCY_CODE:'symbol'}}</span>
+                            </div>
+                            <a (click)="redirect(votePackage.id)" class="btn btnSuccess text-uppercase px-5 purchase-btn">Purchase</a
+                            >
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

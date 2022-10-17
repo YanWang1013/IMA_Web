@@ -1,0 +1,60 @@
+<!-- @format -->
+<div class="view-profile" *ngIf="user">
+    <div class="vpinner">
+        <div class="container">
+            <div class="offset-md-3 col-md-6">
+                <div class="viewProfiles">
+                    <div class="profileupdate text-center">
+                        <a
+                            [routerLink]="['/edit']"
+                            class="text-uppercase btn btnOutline"
+                            href="javascript:void(0)"
+                            >Update Profile</a
+                        >
+                    </div>
+                    <div class="vpcontainer mx-auto text-center">
+                        <div class="profile-image position-relative">
+                            <app-attachment [type]="'mobile'"
+                            [attachment]="user.attachment"
+                            
+                            [cssClass]="'img-fluid rounded-circle overflow-hidden'"
+                        ></app-attachment>
+                            <div class="subscribedicon" *ngIf="user.is_subscribed">
+                                <img
+                                    src="assets/images/subscribe-icon.png"
+                                    class="img-fluid"
+                                />
+                            </div>
+                        </div>
+                        <h2 class="profile-name rozhafont">
+                            {{user.first_name}} {{user.last_name}}
+                        </h2>
+                        <p class="forgot-subscribe subscribed" *ngIf="!user.is_subscribed">
+                            <a href="javascript" [routerLink]="['/checkout/subscription']"><em>Forgot to Subscribe?</em></a>
+                        </p>
+                        <p class="m-0" *ngIf="!user.is_subscribed">
+                            Subscribe now to get full access. Welcome {{user.first_name}} {{user.last_name}}.
+                        </p>
+                        <p class="profile-details mx-auto" *ngIf="!user.is_subscribed">
+
+                        </p>
+                        <div class="subscribe-button">
+                            <a
+                                href="javascript:void(0)"
+                                [routerLink]="['/categories']"
+                                class="btn btn-primary d-block text-uppercase"
+                                >Browse Contestants</a
+                            >
+                            <!-- <a
+                                href="javascript:void(0)"
+                                [routerLink]="['/shop']"
+                                class="btn btn-warning d-block text-uppercase mt-3 text-white"
+                                >Shop Now</a
+                            > -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

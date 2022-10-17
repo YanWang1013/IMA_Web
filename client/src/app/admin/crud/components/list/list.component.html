@@ -1,0 +1,89 @@
+<div class="container" *ngIf="menu">
+   <div class="table-wrapper table-responsive">
+      <div class="table-title">
+         <div class="row" *ngIf="menu.title">
+            <div class="col-sm-8">
+               <h2>Manage <b>{{menu.title}}</b></h2>
+            </div>
+            <div class="col-sm-4" *ngIf="menu.add || menu.approve ">
+               <a href="javascript:void(0)" (click)="redirect('add')" *ngIf="menu.add" class="btn btn-success"><i
+                     class="fa fa-plus"></i> <span>Add</span></a>
+               <a href="javascript:void(0)" (click)="redirect('delete')" *ngIf="menu.delete" class="btn btn-danger"><i
+                     class="fa fa-trash"></i> <span>Delete</span></a>
+<!--               <a href="javascript:void(0)" (click)="approveAll()" [class.disabled]="!responseData || responseData.length === 0" *ngIf="menu.approve" class="btn btn-success"><i-->
+<!--                     class="fa fa-plus"></i> <span>Approve All</span></a>-->
+<!--               <a href="javascript:void(0)" (click)="disapproveAll()" [class.disabled]="!responseData || responseData.length === 0" *ngIf="menu.disapprove" class="btn btn-danger"><i-->
+<!--                     class="fa fa-trash"></i> <span>Disapprove All</span></a>-->
+            </div>
+            <!-- *ngIf="menu.filters && menu.filters.length > 0" -->
+            <div class="col-sm-4 text-right" *ngIf="(menu.filters && menu.filters.length > 0)">
+               <div class="input-group">
+                   <input type="text" class="form-control" [(ngModel)]="search"
+                       [ngModelOptions]="{standalone: true}">
+                   <div class="input-group-append">
+                       <button class="btn btn-outline-secondary btn-info" type="button"
+                           (click)="getFilterRecords()" data-toggle="tooltip" data-placement="bottom"
+                           title="Search">
+                           <i class="fa fa-search"></i>
+                       </button>
+                   </div>
+               </div>
+           </div>
+<!--           <div class="col-sm-4 text-right" *ngIf="(menu.filters && menu.filters.length > 0)">-->
+<!--            <select class="form-control text-center" (ngModelChange)="getFilterRecordsByName($event)" [(ngModel)]="filter_list" [ngModelOptions]="{standalone: true}">-->
+<!--               <option *ngFor="let option of menu.filter_list;" [value]="option.value">{{option.name}}</option></select>-->
+<!--           </div>-->
+         </div>
+      </div>
+      <table class="table table-overflow table-striped table-hover table-bordered">
+         <thead class="thead-info">
+            <tr>
+               <!-- <th>table-responsive
+                 <span class="custom-checkbox">
+                 <input type="checkbox" id="selectAll">
+                 <label for="selectAll"></label>
+                 </span>
+              </th> -->
+               <th class="text-center" *ngFor="let item of menu.listview.fields">{{item.label}}</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let element of responseData">
+               <!-- <td>
+                 <span class="custom-checkbox">
+                 <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                 <label for="checkbox1"></label>
+                 </span>
+              </td> -->
+               <td class="text-center" *ngFor="let elementChild of menu.listview.fields">
+                  <span *ngIf="!elementChild.listActions">
+                     <span *ngIf="elementChild['label'] === 'From User' && elementChild['type'] !== 'boolean'">
+                        <span *ngIf="element.parent_user_id === 0">{{element.other_user.first_name}}
+                           {{element.other_user.last_name}}</span>
+                        <span *ngIf="element.parent_user_id !== 0">{{element.parent_user.first_name}}
+                           {{element.parent_user.last_name}}</span>
+                     </span>
+                     <span *ngIf="elementChild['label'] !== 'From User' && elementChild['type'] !== 'boolean'">{{getValue(elementChild['name'],
+                        element)}}</span>
+                     <span *ngIf="elementChild['type'] === 'boolean'">{{(getValue(elementChild['name'],
+                          element) === true) ? 'Yes' : 'No'}}</span>
+                  </span>
+                  <span *ngIf="elementChild.listActions">
+                     <a href="javascript:void(0)" (click)="action(element, button.label)"
+                        *ngFor="let button of elementChild.listActions" class="{{button.class}}"
+                        data-toggle="modal">&nbsp;&nbsp;<i class="{{button.icon}}"></i></a>&nbsp;
+                  </span>
+               </td>
+            </tr>
+            <tr *ngIf="responseData && responseData.length === 0">
+               <td class="text-center" [attr.colspan]="field_count">No Records</td>
+            </tr>
+         </tbody>
+      </table>
+      <div class="clearfix justify-content-center d-flex" *ngIf="metaData && metaData.last_page > 1">
+         <ngb-pagination [collectionSize]="metaData.total" [pageSize]="metaData.per_page"
+            [(page)]="metaData.current_page" [maxSize]="7" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
+            (pageChange)="loadPage($event)"></ngb-pagination>
+      </div>
+   </div>
+</div>

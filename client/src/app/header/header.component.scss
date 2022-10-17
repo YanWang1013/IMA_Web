@@ -1,0 +1,134 @@
+$topnav-background-color: #222;
+
+/* header starts */
+
+.navbar {
+    background-color: #1a1a1a;
+    padding: 0px 130px;
+    .navbar-brand {
+        color: #fff;
+    }
+    .nav-item {
+        padding: 0 15px;
+        >a {
+            color: #fff;
+            font-size: 16px;
+            &:hover {
+                color: #ef90a4;
+            }
+        }
+    }
+    &.scrollheader {
+        background-color: #1a1a1a;
+    }
+}
+
+.imacontainer {
+    max-width: 1920px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.staticimanav {
+    position: static;
+    background-color: #20293c;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header-alert {
+    z-index: 99;
+    width: 100%;
+    left: 0;
+    top: 15px;
+}
+
+li.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            border-bottom: 1px solid #eee;
+        }
+    }
+}
+
+.dropdown-menu ul li.dropdown-item a {
+    color: #000000;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.dropdown-menu a {
+    color: #fff;
+    font-size: 14px !important;
+}
+
+@media (max-width: 1900px) {
+     :host {
+        .navbar {
+            padding: 0px 88px;
+            .nav-item {
+                padding: 27px 20px;
+                >a {
+                    font-size: 14px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    padding-left: 0;
+                    padding-right: 0;
+                    font-family: 'Lusitana', serif;
+                    white-space: nowrap;
+                }
+            }
+            // .navbar-brand {
+            //     img {}
+            // }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .imanavbar {
+        position: static;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 12px 25px !important;
+    }
+    .navbar {
+        .nav-item {
+            padding: 0 !important;
+            a {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.nav-item {
+    .nav-link.active {
+        color: #ef90a4 !important;
+    }
+}
+
+.logoSize {
+    width: 60px;
+}
+
+.menuReverse {
+    justify-content: flex-end;
+}
+
+@media (max-width: 1024px) and (min-width: 998px) {
+    .nav-item {
+        padding: 0 10px !important;
+        a {
+            font-size: 13px !important;
+        }
+    }
+}
+
+
+/* header ends */

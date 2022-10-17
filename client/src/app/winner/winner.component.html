@@ -1,0 +1,59 @@
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Winner</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)" [routerLink]="['/']">HOME</a></li>
+                        <li><p>WINNER</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<div class="imacontainer">
+    <!-- <div class="subheader position-relative">
+        <div class="subheadings" *ngIf="pageType === 2">
+            <h2>
+                HIGHEST VOTES
+            </h2>
+        </div>
+        <div class="subheadings" *ngIf="pageType === 3">
+            <h2>
+                RECENT WINNERS
+            </h2>
+        </div>
+        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
+    </div> -->
+    <div class="content-middle contestants-section">
+<h1 *ngIf="pageTitle" class="mb-4 text-center">{{pageTitle}}</h1>
+<div class="offset-md-2 col-md-8 remindTime mb-5">
+    <h4 class="pb-3">You have<br> <span *ngIf="left_time !== 0">{{message}}</span><span *ngIf="left_time === 0">Contest Completed</span><br>to finalize the results!</h4>
+    <h6>Keep supporting your favourite models by casting votes while you can</h6> 
+</div>
+<ngb-carousel *ngIf="usersTop.length > 0">
+    <ng-template ngbSlide *ngFor="let user of usersTop">
+            <app-attachment [type]="'mobile'"
+                        [attachment]="user.attachment"
+                        
+                        [cssClass]="'carouselimage'"
+                    ></app-attachment>
+        <div class="carousel-caption">
+        <h3><a
+            (click)="redirect(user)"
+            class="btn btn-primary text-uppercase m-auto">
+            Vote for {{ user.first_name }}
+            {{ user.last_name }}
+        </a></h3>
+        <p>Votes : {{user.votes}}</p>
+        </div>
+    </ng-template>
+</ngb-carousel>
+<div *ngIf="usersTop.length === 0" class="textWhite text-center noRecord">No Records</div>
+<app-contestants [usersData]="users" [isHeader]="isHeader" [type]="pageType"></app-contestants>
+</div>

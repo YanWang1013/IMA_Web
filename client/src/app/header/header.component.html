@@ -1,0 +1,208 @@
+<div class="imacontainer position-relative" *ngIf="hideHeader">
+    <!-- <nav class="navbar navbar-expand-lg fixed-top imanavbar" [ngClass]="{scrollheader: isScrollheader}">
+        <a class="navbar-brand" *ngIf="!sessionService.isAuth || (sessionService.isAuth && sessionService.user.role.id === 2)" [routerLink]="['/']"><img src="assets/images/ima-logo.png" class="img-fluid" /></a>
+        <a class="navbar-brand" *ngIf="(sessionService.isAuth && sessionService.user.role.id !== 2)"  (click)="toggleSidebar();redirect('/profile/', sessionService.user.username)"><img src="assets/images/ima-logo.png" class="img-fluid" /></a>
+        <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+            <i class="fa fa-bars text-muted" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" [ngClass]="{show: isShow}">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" *ngIf="!sessionService.isAuth || (sessionService.isAuth && sessionService.user.role.id === 2)">
+                    <a
+                        href="javascript:void(0)"
+                        [routerLink]="['/']"
+                        (click)="toggleSidebar();"
+                        class="nav-link"
+                        >HOME</a
+                    >
+                </li>
+                <li class="nav-item" *ngIf="(sessionService.isAuth && sessionService.user.role.id !== 2)">
+                    <a href="javascript:void(0)" (click)="toggleSidebar();redirect('/profile/', sessionService.user.username)"
+                        class="nav-link">HOME</a>
+                </li>
+                <li class="nav-item" *ngIf="(sessionService.isAuth && (sessionService.user.role.id === 1 || sessionService.user.role.id === 4))">
+                    <a href="javascript:void(0)" (click)="toggleSidebar();redirect('/admin/dashboard', '')"
+                        class="nav-link">ADMIN</a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void(0)" [routerLink]="['/tickets']" (click)="toggleSidebar()"
+                        class="nav-link">TICKETS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void(0)" [routerLink]="['/advertisers']" (click)="toggleSidebar()"
+                        class="nav-link">ADVERTISERS</a>
+                </li>
+                <li class="nav-item"
+                    *ngIf="!sessionService.isAuth || (sessionService.isAuth && sessionService.user.role.id === 2)">
+                    <a href="javascript:void(0)" [routerLink]="['/categories']" (click)="toggleSidebar()"
+                        class="nav-link">CATEGORIES</a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void(0)" [routerLink]="['/shop']" (click)="toggleSidebar()"
+                        class="nav-link">SHOP</a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void(0)" [routerLink]="['/page/aboutus']" (click)="toggleSidebar();"
+                        class="nav-link">ABOUT US</a>
+                </li>
+                <li class="nav-item" *ngIf="!sessionService.isAuth">
+                    <a href="javascript:void(0)" [routerLink]="['/signup']" (click)="toggleSidebar()"
+                        class="nav-link">SIGNUP</a>
+                </li>
+                <li class="nav-item" *ngIf="!sessionService.isAuth">
+                    <a href="javascript:void(0)" [routerLink]="['/login']" (click)="toggleSidebar()"
+                        class="nav-link logBtn">LOGIN</a>
+                </li>
+
+                <li class="nav-item dropdown" *ngIf="sessionService.isAuth">
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0)">
+                        SETTINGS
+                    </a>
+                    <div class="dropdown-menu dropdown">
+                        <ul>
+                            <li class="dropdown-item" *ngIf="sessionService.user.role.id === 2" [routerLink]="['/view-profile']" >
+                                <a href="javascript:void(0)"
+                                    (click)="toggleSidebar()">PROFILE</a>
+                            </li>
+                            <li class="dropdown-item" *ngIf="sessionService.user.role.id !== 2" [routerLink]="['/edit']" >
+                                <a href="javascript:void(0)"
+                                    (click)="toggleSidebar()">PROFILE</a>
+                            </li>
+                            <li class="dropdown-item" [routerLink]="['/myproducts']" *ngIf="sessionService.isAuth && sessionService.user.role.id !== 2">
+                                <a href="javascript:void(0)"
+                                    (click)="toggleSidebar()">MY PRODUCTS</a>
+                            </li>
+                            <li class="dropdown-item" [routerLink]="['/cart']" >
+                                <a href="javascript:void(0)"
+                                    (click)="toggleSidebar()">CART</a>
+                            </li>
+                            <li class="dropdown-item" [routerLink]="['/myorder']" >
+                                <a href="javascript:void(0)"
+                                    (click)="toggleSidebar()">MY ORDERS</a>
+                            </li>
+                            <li class="dropdown-item" [routerLink]="['/transaction']" >
+                                <a href="javascript:void(0)"
+                                    (click)="toggleSidebar()">TRANSACTION</a>
+                            </li>
+                            <li class="dropdown-item" [routerLink]="['/change-password']" >
+                                <a href="javascript:void(0)"
+                                    (click)="toggleSidebar()">CHANGE PASSWORD</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item" *ngIf="sessionService.isAuth">
+                    <a href="javascript:void(0)" (click)="toggleSidebar();logout();" class="nav-link logBtn">LOGOUT</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg fixed-top imanavbar" [ngClass]="{scrollheader: isScrollheader}">
+
+        <a class="navbar-brand d-lg-none" [routerLink]="['/']"><img src="assets/images/main-logo.png"
+                class="img-fluid" /></a>
+
+        <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+            <i class="fa fa-bars text-muted" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" [ngClass]="{show: isShow}">
+            <div class="row">
+                <div class="col-sm-5">
+                    <ul class="navbar-nav menuReverse clearfix">
+                        <li class="nav-item"
+                            *ngIf="!sessionService.isAuth || (sessionService.isAuth && sessionService.user.role.id === 2)">
+                            <a class="nav-link active" [routerLink]="['/']" href="javascript:void(0)">
+                                Home <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item" *ngIf="(sessionService.isAuth && sessionService.user.role.id !== 2 && sessionService.user.role.id !== 4)">
+                            <a class="nav-link active" href="javascript:void(0)"
+                                (click)="toggleSidebar();redirect('/profile/', sessionService.user.username)">
+                                Home <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item"
+                            *ngIf="(sessionService.isAuth && (sessionService.user.role.id === 4))">
+                            <a class="nav-link active" href="javascript:void(0)"
+                                (click)="toggleSidebar();redirect('/profile/', sessionService.user.username)">
+                                Home <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item"
+                            *ngIf="(sessionService.isAuth && (sessionService.user.role.id === 1 || sessionService.user.role.id === 4))">
+                            <a href="javascript:void(0)" (click)="toggleSidebar();redirect('/admin/dashboard', '')"
+                                class="nav-link">ADMIN</a>
+                        </li>
+
+                        <li class="nav-item dmenu dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                More Options
+                            </a>
+                            <div class="dropdown-menu sm-menu" aria-labelledby="navbarDropdown">
+                                <!-- <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/shop']" (click)="toggleSidebar()">SHOP</a> -->
+                                <!-- <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/winner']"
+                                    (click)="toggleSidebar()">Highest Votes</a> -->
+                                <a *ngIf="winner || (settings && settings.CONTEST_EXIST && settings.CONTEST_END_DAYS_LEFT <= 0 && settings.CONTEST_END_TIME_LEFT <= 0)" class="dropdown-item" href="javascript:void(0)" [routerLink]="['/recent_winner']"
+                                    (click)="toggleSidebar()">{{settings.CONTEST_END_DATE | date: 'yyyy'}} Winner</a>
+                                <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/contactus']"
+                                    (click)="toggleSidebar()">Contact</a>
+                                <a class="dropdown-item" href="javascript:void(0)" [routerLink]="['/categories']"
+                                    (click)="toggleSidebar()">Categories</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/sponsors']" (click)="toggleSidebar()">Sponsors</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-2">
+                    <a class="navbar-brand d-none d-lg-block text-center" [routerLink]="['/']">
+                        <img src="assets/images/main-logo.png" class="img-fluid logoSize" />
+                    </a>
+                </div>
+
+                <div class="col-sm-5">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://fb.me/e/3P9TQiG4g" target="_blank">2021 Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/contestants/all']" (click)="toggleSidebar()">Nominees</a>
+                        </li>
+                        <li class="nav-item" *ngIf="!sessionService.isAuth">
+                            <a class="nav-link" [routerLink]="['/login']" (click)="toggleSidebar()">LOGIN</a>
+                        </li>
+                        <li class="nav-item dmenu dropdown" *ngIf="sessionService.isAuth">
+                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                SETTINGS
+                            </a>
+                            <div class="dropdown-menu sm-menu" aria-labelledby="navbarDropdown">
+                                <a *ngIf="sessionService.user.role.id === 2" [routerLink]="['/view-profile']"
+                                    href="javascript:void(0)" class="dropdown-item"
+                                    (click)="toggleSidebar()">PROFILE</a>
+                                <a href="javascript:void(0)" class="dropdown-item"
+                                    *ngIf="sessionService.user.role.id !== 2" [routerLink]="['/edit']"
+                                    (click)="toggleSidebar()">PROFILE</a>
+                                <a href="javascript:void(0)" class="dropdown-item" [routerLink]="['/transaction']"
+                                    (click)="toggleSidebar()">TRANSACTION</a>
+                                <a href="javascript:void(0)" class="dropdown-item" [routerLink]="['/change-password']"
+                                    (click)="toggleSidebar()">CHANGE PASSWORD</a>
+                                <a href="javascript:void(0)" *ngIf="sessionService.isAuth" class="dropdown-item"
+                                    (click)="toggleSidebar();logout();">LOGOUT</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

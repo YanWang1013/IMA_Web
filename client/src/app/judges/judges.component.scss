@@ -1,0 +1,109 @@
+////Judges Start
+.executiveBanners {
+    background-image: url(../../assets/images/executiveBanners.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: #fff;
+}
+.executiveBanners_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+}
+.executiveBanners_box {
+    z-index: 1;
+    text-align: center;
+    padding: 170px 0 70px 0;
+    h1 {
+        font-size: 46px;
+        padding-bottom: 8px;
+    }
+    ul {
+        margin-left: -40px;
+    }
+    li {
+        display: inline-block;
+        font-family: 'Lusitana', serif;
+        padding: 0 25px;
+        font-weight: 800;
+        a {
+            color: #a9a9a9;
+            &:focus {
+                color: #a9a9a9;
+            }
+            &:hover {
+                color: #ef90a4;
+            }
+        }
+        p {
+            color: #ef90a4;
+        }
+    }
+}
+.judgespageSec {
+    padding: 60px 0;
+}
+.judgespageSec-box {
+    background-color: #0d0d0d;
+    margin: 15px 0;
+    cursor: pointer;
+    &:hover {
+        .judgespageSec-Media {
+            opacity: .3;
+        }
+    }
+}
+.judgespageSec-Media {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s linear 0s;
+}
+.judgespageSec-content {
+    padding: 35px 20px;
+    h3 {
+        margin-bottom: 10px;
+        font-size: 30px;
+        font-family: 'Playfair Display', serif;
+        font-weight: 400;
+        line-height: 1;
+        word-break: break-word;
+        color: #fff;
+    }
+    h6 {
+        color: #ef90a4;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: 'Lusitana', serif;
+        margin-bottom: 20px;
+    }
+    p {
+        color: #ababab;
+    }
+}
+.judgespageSec-social {
+    .fa-facebook {
+        color: #507cbe;
+    }
+    .fa-twitter {
+        color: #00abef;
+        margin-left: 20px;
+    }
+    .fa-google {
+        color: #d93e2d;
+        margin-left: 20px;
+    }
+}
+@media (max-width: 798px) {
+    .executiveBanners_box {
+        padding: 75px 0 50px 0;
+    }
+}
+////Judges End

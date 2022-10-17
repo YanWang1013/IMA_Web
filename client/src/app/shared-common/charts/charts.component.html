@@ -1,0 +1,65 @@
+<!-- <div class="row">
+    <div class="col col-sm-6">
+        <div class="card mb-3">
+            <div class="card-header">
+                Funds
+            </div>
+            <div class="card-body">
+                <canvas
+                    baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"
+                >
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col col-sm-6">
+        <div class="card mb-3">
+            <div class="card-header">
+                Top 10 Products Sold
+            </div>
+            <div class="card-body">
+                <canvas
+                    baseChart
+                    height="150px"
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"
+                >
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="row">
+    <div class="col col-sm-12">
+        <div class="card mb-3">
+            <div class="card-header">
+                Vote Packages
+            </div>
+            <div class="card-body">
+                <canvas
+                    baseChart
+                    height="100"
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColors"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"
+                >
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>

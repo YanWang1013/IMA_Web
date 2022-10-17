@@ -1,0 +1,351 @@
+.contestants-section {
+    .contestant-img {
+        border-radius: 50px;
+        overflow: hidden;
+        display: block;
+    }
+    .contestant-listdetails {
+        margin: 5px 0 50px;
+        align-items: center;
+    }
+    .contestant-name {
+        flex: 1 1 0;
+        color: #8f8f8f;
+        font-size: 25px;
+    }
+    .contestant-counts {
+        color: #8f8f8f;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.usercategory {
+    width: 100%;
+    color: #8f8f8f;
+    font-size: 25px;
+}
+
+.contName {
+    font-weight: 600;
+    color: #0c8ff9 !important;
+    font-size: 18px;
+}
+
+.contCate {
+    color: #403e3e;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 1900px) {
+    .contestants-section {
+        .contestant-img {
+            border-radius: 20px;
+        }
+        .contestant-name {
+            font-size: 16px;
+        }
+        .contestant-counts {
+            font-size: 13px;
+            img {
+                width: 20px;
+                height: auto;
+            }
+        }
+        .contestant-listdetails {
+            margin: 5px 0 20px;
+        }
+    }
+    .usercategory {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .usercategory {
+        font-size: 12px;
+        line-height: normal;
+    }
+}
+
+///New Syle Start
+////Inner Banner Start
+.innerBanners {
+    background-image: url(../../assets/images/innerBanners.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: #fff;
+}
+
+.innerBanners_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+}
+
+.innerBanners_box {
+    z-index: 1;
+    text-align: center;
+    padding: 0 0 0 0;
+    h1 {
+        font-size: 46px;
+        padding-bottom: 8px;
+    }
+    ul {
+        margin-left: -40px;
+    }
+    li {
+        display: inline-block;
+        font-family: 'Lusitana', serif;
+        padding: 0 25px;
+        font-weight: 800;
+        a {
+            color: #a9a9a9;
+            &:focus {
+                color: #a9a9a9;
+            }
+            &:hover {
+                color: #ef90a4;
+            }
+        }
+        p {
+            color: #ef90a4;
+        }
+    }
+}
+
+@media (max-width: 798px) {
+    .innerBanners_box {
+        padding: 0 0 0 0;
+    }
+}
+
+////Inner Banner End
+///Contestants Start
+.contestantsSec {
+    padding: 5px 0;
+}
+
+.contestantsSec h2 {
+    color: #fff;
+    padding-bottom: 10px;
+    font-size: 30px;
+}
+
+.contestantsBox {
+    position: relative;
+    margin: 20px 0;
+    border: 2px solid #eee;
+    max-height: 380px;
+    height: 100%;
+}
+
+.contestantsBox img {
+    height: 400px;
+    object-fit: cover;
+    object-position: 100% 0;
+    width: 100%;
+}
+
+.contestantsBox_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(233, 21, 25);
+    background: linear-gradient(137deg, rgba(233, 21, 25, 1) 34%, rgba(255, 255, 255, 0) 50%, rgba(8, 52, 163, 1) 64%);
+    opacity: 0.3;
+}
+
+.contestantsText_1 {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    content: "";
+    bottom: 0;
+    margin: 45px auto;
+    width: 100%;
+    color: #fff;
+    left: 0;
+    right: 0;
+}
+
+.contestantsText_1 h4 {
+    background: -webkit-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #ffffff 8%, #9f7928 30%, #967732 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #9e7821 62.5%, #ffffff 100%);
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #ffffff 8%, #9f7928 30%, #967732 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #9e7821 62.5%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 28px;
+    font-weight: 800;
+    font-family: "Lusitana", serif;
+}
+
+.contestantsText_1 h4 span {
+    font-size: 20px;
+}
+
+.contestantsText_1 p {
+    background: -webkit-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #ffffff 8%, #9f7928 30%, #967732 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #9e7821 62.5%, #ffffff 100%);
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #ffffff 8%, #9f7928 30%, #967732 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #9e7821 62.5%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #fff;
+    font-family: "Lusitana", serif;
+    margin-top: -5px;
+    font-size: 12px;
+}
+
+.contestantsText_2 {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    content: "";
+    margin: 45px auto;
+    width: 100%;
+    color: #fff;
+    left: 0;
+    right: 0;
+}
+
+.contestantsText_2 h3 {
+    background: -webkit-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #ffffff 8%, #9f7928 30%, #967732 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #9e7821 62.5%, #ffffff 100%);
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #ffffff 8%, #9f7928 30%, #967732 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #9e7821 62.5%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 34px;
+    font-weight: 800;
+    font-family: "Lusitana", serif;
+}
+
+.contestantsText_2 h5 {
+    background: -webkit-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #ffffff 8%, #9f7928 30%, #967732 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #9e7821 62.5%, #ffffff 100%);
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #ffffff 8%, #9f7928 30%, #967732 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #9e7821 62.5%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #fff;
+    font-family: "Lusitana", serif;
+    margin-top: -5px;
+    font-size: 15px;
+}
+
+.contestantsText_3 {
+    position: absolute;
+    content: "";
+    bottom: 6px;
+    width: 100%;
+    color: #fff;
+    left: 17px;
+}
+
+.contestantsText_3 p {
+    background: #ef90a4;
+    display: -webkit-inline-box;
+    text-align: center;
+    padding: 3px 12px 0px 12px;
+    font-weight: 700;
+    font-family: "Lusitana", serif;
+}
+
+///Contestants End
+///New Syle End
+.pt-65 {
+    padding-top: 65px;
+}
+
+.pb-65 {
+    padding-bottom: 65px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+.clsNamineeList {
+    margin: 0 1px;
+    li {
+        float: left;
+        width: 20%;
+        padding: 0 1px 2px;
+        position: relative;
+        a {
+            display: block;
+            position: relative;
+            width: 230px;
+            height: 230px;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                background: #0000003b;
+            }
+        }
+        .clsNameBlock {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            bottom: 5px;
+        }
+    }
+    .clsStar {
+        color: #fff;
+    }
+    .contestant-name {
+        color: #fff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 1199px) {
+    .clsNamineeList {
+        li {
+            width: 25%;
+            a {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .clsNamineeList {
+        li {
+            width: 33%;
+            a {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .clsNamineeList {
+        li {
+            width: 50%;
+            a {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

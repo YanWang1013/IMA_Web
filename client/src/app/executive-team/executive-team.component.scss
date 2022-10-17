@@ -1,0 +1,79 @@
+////Executive Start
+.executiveBanners {
+    background-image: url(../../assets/images/executiveBanners.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: #fff;
+}
+.executiveBanners_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+}
+.executiveBanners_box {
+    z-index: 1;
+    text-align: center;
+    padding: 170px 0 70px 0;
+    h1 {
+        font-size: 46px;
+        padding-bottom: 8px;
+    }
+    ul {
+        margin-left: -40px;
+    }
+    li {
+        display: inline-block;
+        font-family: 'Lusitana', serif;
+        padding: 0 25px;
+        font-weight: 800;
+        a {
+            color: #a9a9a9;
+            &:focus {
+                color: #a9a9a9;
+            }
+            &:hover {
+                color: #ef90a4;
+            }
+        }
+        p {
+            color: #ef90a4;
+        }
+    }
+}
+.executiveteamSec {
+    padding: 60px 0;
+}
+.executiveteamSec-box {
+    background: #0d0d0d;
+    margin-bottom: 20px;
+}
+.executiveteamSec-content {
+    padding: 30px 30px 15px 30px;
+    font-family: 'Playfair Display', serif;
+    h4 {
+        color: #ffffff;
+        font-size: 20px;
+        line-height: 1;
+    }
+    p {
+        color: #ef90a4;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: 'Lusitana', serif;
+    }
+}
+
+@media (max-width: 798px) {
+    .executiveBanners_box {
+        padding: 75px 0 50px 0;
+    }
+}
+////Executive End

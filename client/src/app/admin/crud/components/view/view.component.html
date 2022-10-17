@@ -1,0 +1,33 @@
+<div class="container" *ngIf="menu">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>View <b>{{menu.title}}</b></h2>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="responseData">
+            <div *ngFor="let item of menu.view.fields">
+<!--                <div class="row" *ngIf="item.name !== 'username'">-->
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>{{item.label}}</label>
+                    </div>
+                    <div class="col-md-6" *ngIf="item.type !== 'file'">
+                        <label>{{item.value}}</label>
+                    </div>
+                    <div class="col-md-2" *ngIf="item.type === 'file'">
+                        <div class="contprofileimage">
+                            <app-attachment [type]="'mobile'" [attachment]="responseData.attachment"></app-attachment>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix pt-20 text-right">
+            <button class="btn btn-primary" (click)="back()" type="button"> Back </button>
+        </div>
+    </div>
+</div>

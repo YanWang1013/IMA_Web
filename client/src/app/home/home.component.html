@@ -1,0 +1,422 @@
+<!-- @format -->
+<!-- <div class="imacontainer">
+    <div class="subheader position-relative">
+        <img src="assets/images/home-banner.jpg" class="img-fluid" />
+        <div class="subheadings">
+            <h2>
+                Influential Model Awards
+                <span
+                    ><span class="nextline"> IMA is the first international beauty contest website where pagents can participate in different contestants.</span
+                >
+                </span>
+            </h2>
+        </div>
+        
+    </div>
+</div> -->
+<!-- <div class="home-instantvote">
+    <div class="instavote-container mx-auto">
+        <div class="homeinstavotein">
+            <div class="instavoteimg">
+                <img src="assets/images/home-invote.png" class="img-fluid" />
+            </div>
+            <div class="text-white homeinstantvote">
+                <h2 class="text-uppercase m-0">Instant Vote</h2>
+                <p>People can vote for the preferred contestants to choose the winners instant.</p>
+            </div>
+            <div class="invotebt">
+                <button class="btn btn-primary text-uppercase instant-vote-btn"
+                    [routerLink]="['/instant-vote']"
+                >
+                    Vote Now
+                </button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <div class="imafeaturescontainer">
+    <div class="homefeatures">
+        <div class="">
+            <ul class="row list-unstyled">
+                <li class="col-md-4 text-center">
+                    <div class="px-4">
+                        <img
+                            src="assets/images/feature-advertisers.jpg"
+                            class="img-fluid"
+                        />
+                    </div>
+                    <h2 class="mt-3 mb-0 px-4">Advertisers</h2>
+                    <p class="px-4">
+                        We offer some exciting coupons for the users/contestants and they use it to buy the products.
+                    </p>
+                    <div class="px-4">
+                        <a
+                            href="javascript:void(0)"
+                            [routerLink]="['/advertisers']"
+                            class="d-block btn btn-primary features-btn"
+                            >VISIT PAGE</a
+                        >
+                    </div>
+                </li>
+                <li class="col-md-4 text-center">
+                    <div class="px-4">
+                        <img
+                            src="assets/images/feature-contestants.jpg"
+                            class="img-fluid"
+                        />
+                    </div>
+                    <h2 class="mt-3 mb-0 px-4">Highest Votes</h2>
+                    <p class="px-4">
+                        Contestants comes here are keep fluctuating based on number of votes they get over a period of time.
+                    </p>
+                    <div class="px-4">
+                        <a
+                            href="javascript:void(0)"
+                            [routerLink]="['/winner']"
+                            class="d-block btn btn-primary features-btn"
+                            >VISIT PAGE</a
+                        >
+                    </div>
+                </li>
+                <li class="col-md-4 text-center">
+                    <div class="px-4">
+                        <img
+                            src="assets/images/feature-contestants.jpg"
+                            class="img-fluid"
+                        />
+                    </div>
+                    <h2 class="mt-3 mb-0 px-4">Recent Winner</h2>
+                    <p class="px-4">
+                        See the contestants in recently awarded.
+                    </p>
+                    <div class="px-4">
+                        <a
+                            href="javascript:void(0)"
+                            [routerLink]="['/recent_winner']"
+                            class="d-block btn btn-primary features-btn"
+                            >VISIT PAGE</a
+                        >
+                    </div>
+                </li>
+                <li class="col-md-4 text-center">
+                    <div class="px-4">
+                        <img
+                            src="assets/images/feature-vote.jpg"
+                            class="img-fluid"
+                        />
+                    </div>
+                    <h2 class="mt-3 mb-0 px-4">Categories</h2>
+                    <p class="px-4">
+                        See the contestants in some exciting categories.
+                    </p>
+                    <div class="px-4">
+                        <a
+                            href="javascript:void(0)"
+                            [routerLink]="['/categories']"
+                            class="d-block btn btn-primary features-btn"
+                            >VISIT PAGE</a
+                        >
+                    </div>
+                </li>
+                <li class="col-md-4 text-center">
+                    <div class="px-4">
+                        <img
+                            src="assets/images/feature-shop.jpg"
+                            class="img-fluid"
+                        />
+                    </div>
+                    <h2 class="mt-3 mb-0 px-4">Shop</h2>
+                    <p class="px-4">
+                        Ecommerce shop where you can purchase some exciting products of contestants.
+                    </p>
+                    <div class="px-4">
+                        <a
+                            href="javascript:void(0)"
+                            [routerLink]="['/shop']"
+                            class="d-block btn btn-primary features-btn"
+                            >VISIT PAGE</a
+                        >
+                    </div>
+                </li>
+                <li class="col-md-4 text-center" *ngIf="sessionService.isAuth">
+                    <div class="px-4">
+                        <img
+                            src="assets/images/feature-myprofile.jpg"
+                            class="img-fluid"
+                        />
+                    </div>
+                    <h2 class="mt-3 mb-0 px-4">My Profle</h2>
+                    <p class="px-4">
+                        Edit your profile settings
+                    </p>
+                    <div class="px-4">
+                        <a
+                            href="javascript:void(0)"
+                            [routerLink]="['/edit']"
+                            *ngIf="sessionService.isAuth"
+                            class="d-block btn btn-primary features-btn"
+                            >VISIT PAGE</a
+                        >
+                    </div>
+                </li>
+                <li class="col-md-4 text-center">
+                    <div class="px-4">
+                        <img
+                            src="assets/images/feature-gofundme.jpg"
+                            class="img-fluid"
+                        />
+                    </div>
+                    <h2 class="mt-3 mb-0 px-4">GoFundMe</h2>
+                    <p class="px-4">
+                        We appreciate your little contribution towards our platform.
+                    </p>
+                    <div class="px-4">
+                        <a
+                            href="javascript:void(0)"
+                            *ngIf="!sessionService.isAuth"
+                            [routerLink]="['/login']"
+                            class="d-block btn btn-primary features-btn"
+                            >VISIT PAGE</a
+                        >
+                        <a
+                        href="javascript:void(0)"
+                        *ngIf="sessionService.isAuth"
+                        [routerLink]="['/checkout/fund']"
+                        class="d-block btn btn-primary features-btn"
+                        >VISIT PAGE</a
+                    >
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> -->
+<!-- <div class="home-purticket">
+    <div class="purticket-container mx-auto">
+        <div class="homepurticketin">
+            <div class="hticketimg">
+                <img src="assets/images/home-ticket.png" class="img-fluid" />
+            </div>
+            <div class="text-white homepticketcont">
+                <h2 class="text-uppercase m-0">Purchase Tickets</h2>
+                <p> Buy the tickets for trending events happening around you...</p>
+            </div>
+            <div class="purticketbt" >
+                <button type="button" [routerLink]="['/tickets']"
+                    class="btn btn-warning text-uppercase pticket-btn text-white"
+                >
+                    Purchase Now
+                </button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <div class="greybg subscribe-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 offset-md-3 text-center">
+                <p class="subscribetext m-0" *ngIf="!sessionService.isAuth || !sessionService.user.is_subscribed">Forgot Subscribe to</p>
+                <p class="subscribetext m-0" *ngIf="sessionService.isAuth && sessionService.user.is_subscribed">You have Subscribed to</p>
+                <h3 class="rozhafont">IMA</h3>
+                <div class="rozhafont vipmember text-uppercase">
+                    vip member
+                </div>
+                <div class="membership-amount mb-5" *ngIf="settings && (!sessionService.isAuth || !sessionService.user.is_subscribed)">
+                    for only <span>{{ settings.SUBSCRIBE_PRICE | currency: settings.CURRENCY_CODE:'symbol' }}</span>
+                </div>
+                <a
+                    href="javascript:void(0)"
+                    *ngIf="!sessionService.isAuth"
+                    [routerLink]="['/login']"
+                    class="text-uppercase btn btn-warning text-white px-5 subscribe-btn"
+                    >Subscribe Now</a
+                >
+                <a
+                href="javascript:void(0)"
+                [routerLink]="['/checkout/subscription']"
+                *ngIf="(sessionService.isAuth && !sessionService.user.is_subscribed)"
+                class="text-uppercase btn btn-warning text-white px-5 subscribe-btn"
+                >Subscribe Now</a
+            >
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- New Design Start -->
+<!-- Banner Start -->
+<section class="homeBanner">
+    <!-- <div class="homeBanner_overlay"></div> -->
+    <div class="container">
+        <div class="homeBanner_sec">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="bannerContent">
+                        <h1>Welcome to the <span>IMA<span>s</span></span></h1>
+                        <div>
+                            <a href="javascript:void(0)" [routerLink]="['/categories']" class="primaryBtn">Vote Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- About Start -->
+<section class="homeAbout"  *ngIf="settings && settings.CONTEST_EXIST && (settings.CONTEST_END_DAYS_LEFT || settings.CONTEST_END_TIME_LEFT) && users && users.length > 0">
+    <div class="homeAbout_overlay"></div>
+    <div class="container">
+        <div class="row clsTopList" *ngIf="users && users.length > 0">
+            <div class="col-sm-12">
+                <!-- {{settings.CONTEST_NAME}}  -->
+                <h2 class="text-center"> Top 10 Contestants <span *ngIf="settings.CONTEST_END_DAYS_LEFT > 1">({{settings.CONTEST_END_DAYS_LEFT}} Days Left)</span><span *ngIf="settings.CONTEST_END_DAYS_LEFT > 0">(<countdown [config]="{leftTime: settings.CONTEST_END_TIME_LEFT}" (event)="handleEvent($event)"></countdown>)</span></h2>
+                <p class="text-center clsItalic"> Keep supporting your favourite models by casting votes while you can </p>
+            </div>
+            <div class="col-md-6 offset-md-3">
+                <ol class="clearfix">
+                    <li *ngFor=" let user of users; let i = index;">
+                        <div class="media" (click)="redirect(user)">
+                            <app-attachment [type]="'mobile'" [attachment]="user.attachment"  [cssClass]="'mr-3'">
+                            </app-attachment>
+                            <div class="media-body align-self-center">
+                                <h3 class="mt-0"><a style="color: white;" href="javascript:void(0)" >{{user.first_name}} {{user.last_name}}</a></h3>
+                            </div>
+                            <div class="media-right">
+                                <div class="clsInner">
+                                    {{user.votes}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="homeAbout" *ngIf="settings && settings.CONTEST_EXIST && settings.CONTEST_END_DAYS_LEFT < 0">
+    <div class="homeAbout_overlay"></div>
+    <div class="container">
+        <div class="row clsTopList">
+            <div class="col-sm-12">
+                <h2 class="text-center"> {{settings.CONTEST_NAME}} </h2>
+                <br>
+                <p class="text-center"> <a href="javascript:void(0)" [routerLink]="['/recent_winner']" class="primaryBtn">Recent winners</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About End -->
+<!-- Price Start -->
+<section class="priceSec d-none">
+    <div class="container">
+        <div class="row db-padding-btm db-attached">
+            <div class="col-md-12 text-center">
+                <div class="titleH2 pb-5">
+                    <h2>IMA</h2>
+                    <!-- <h5>SELECT YOUR OPTION</h5> -->
+                </div>
+            </div>
+            <!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="db-wrapper">
+                    <div class="db-pricing-eleven db-bk-color-one">
+                        <div class="type">
+                            REGULAR
+                        </div>
+                        <div class="price">
+                            <sub>$</sub>269
+                            <small>PER SHOOT</small>
+                        </div>                        
+                        <ul>
+                            <li>Meatball kielbasa ball</li>
+                            <li>Boudin jerky shank</li>
+                            <li>Venison ham ham</li>
+                            <li>Turducken kielbasa sausage</li>
+                            <li>Tri-tip beef ribs</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <a href="javascript:void(0)" class="secondryBtn">Select Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="offset-lg-4 col-xs-12 col-sm-4 col-md-12 col-lg-4" *ngIf="!sessionService.isAuth || !sessionService.user.is_subscribed">
+                <div class="db-wrapper">
+                    <div class="db-pricing-eleven db-bk-color-two popular">
+                        <div class="type">
+                            VIP MEMBER
+                        </div>
+                        <div class="price">
+                            {{ settings.SUBSCRIBE_PRICE | currency: settings.CURRENCY_CODE:'symbol' }}
+                        </div>   
+                        <div class="priceBorder">                     
+                            <ul>
+                                <li>Free Contestants Images</li>
+                                <li>Free Contestants Videos</li>
+                            </ul>
+                            <div class="pricing-footer">
+                                <a href="javascript:void(0)" *ngIf="!sessionService.isAuth"
+                                [routerLink]="['/login']" class="secondryBtn">Subscribe Now</a>
+                                <a href="javascript:void(0)" [routerLink]="['/checkout/subscription']"
+                                *ngIf="(sessionService.isAuth && !sessionService.user.is_subscribed)" class="secondryBtn">Subscribe Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="db-wrapper">
+                    <div class="db-pricing-eleven db-bk-color-three">
+                        <div class="type">
+                            EXTENDED
+                        </div>
+                        <div class="price">
+                            <sub>$</sub>899
+                            <small>PER SHOOT</small>
+                        </div>                        
+                        <ul>
+                            <li>Bacon ham hock spare</li>
+                            <li>Ribs alcatra pork andouille</li>
+                            <li>Rump biltong jerky</li>
+                            <li>Sirloin porchetta swine</li>
+                            <li>Brisket pork pork chop</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <a href="javascript:void(0)" class="secondryBtn">Select Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+<!-- Price End -->
+<!-- Testimonials Start -->
+<!-- <section class="testimonialsSecs">
+    <div class="container">
+        <div class="row">
+            <blockquote class="with_quotes text-center">
+                <img src="assets/images/testimonialimg1.jpg" alt="">
+                <div class="item-meta">
+                    <h5>
+                        <a href="javascript:void(0)">Helen Thompson</a>
+                    </h5>
+                    <p class="small-text highlight">photographer</p>
+                </div>
+                Pork loin andouille rump, corned beef bacon kevin venison tail. Tri-tip boudin pig tenderloin ham. Meatloaf cupim picanha pork chop landjaeger pork chicken andouille jerky, shoulder flank turkey.
+            </blockquote>
+            <blockquote class="with_quotes text-center">
+                <img src="assets/images/testimonialimg1.jpg" alt="">
+                <div class="item-meta">
+                    <h5>
+                        <a href="javascript:void(0)">Helen Thompson</a>
+                    </h5>
+                    <p class="small-text highlight">photographer</p>
+                </div>
+                Pork loin andouille rump, corned beef bacon kevin venison tail. Tri-tip boudin pig tenderloin ham. Meatloaf cupim picanha pork chop landjaeger pork chicken andouille jerky, shoulder flank turkey.
+            </blockquote>
+        </div>
+    </div>
+</section> -->
+<!-- Testimonials End -->
+<!-- Phoneno End -->

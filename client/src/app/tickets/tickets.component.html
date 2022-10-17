@@ -1,0 +1,55 @@
+<!-- @format -->
+
+<div class="imacontainer">
+    <div class="subheader position-relative">
+        <div class="subheadings">
+            <h2 class="text-uppercase">Tickets</h2>
+        </div>
+        <img src="assets/images/contestant-headerbg.jpg" class="img-fluid" />
+    </div>
+    <div class="content-middle advertlisting" *ngIf="!isNodata">
+        <span *ngFor="
+        let ticket of tickets.data;
+        trackBy: trackById
+    ">
+        <div *ngIf="ticket.status === 'live'"
+            class="row mt-5 mb-4 adertindlist ticketSec">
+            <div class="col-lg-7 col-md-6">
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="mr-3">
+                        <div class="advertimg">
+                            <img *ngIf="!ticket.logo" [src]="'https://via.placeholder.com/320x200.png?text=IMA'" class="img-fluid" />
+                            <img *ngIf="ticket.logo" [src]="ticket.logo.url" class="img-fluid" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 d-flex align-items-center">
+                <div class="advertmaincontent">
+                    <h3 class="m-0 p-0 pb-3">
+                        {{ ticket.name.text }}
+                    </h3>
+                    <p class="ticketSec-p">
+                        Start Date : <span>{{ ticket.start.utc | date: 'short' }}</span><br>
+                        End Date : <span>{{ ticket.end.utc | date: 'short' }}</span><br>
+                        Tickets Left : <span>{{ ticket.capacity }}</span><br>
+                    </p>
+                    <div class="purchasebtn mt-2 pt-2">
+                        <a *ngIf="!ticket.is_free"
+                            href="{{ ticket.url }}"
+                            class="btn btn-primary text-uppercase purchasbtn purchasBtn px-5 py-2"
+                            >Purchase</a
+                        >
+                        <a *ngIf="ticket.is_free"
+                            href="{{ ticket.url }}"
+                            class="btn btn-primary text-uppercase purchasbtn purchasBtn px-5 py-2"
+                            >Free Purchase</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </span>
+    </div>
+</div>
+

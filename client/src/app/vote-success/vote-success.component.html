@@ -1,0 +1,23 @@
+<div class="imacontainer mt-5 pt-5">
+    <div class="content-middle">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-4 col-md-4 text-center">
+                    <div class="voteSuccess">
+                        <i class="fa fa-star"></i>
+                        <h5 class="textp pt-4">Vote<br>Successful</h5>
+                        <p class="textp pt-2 pb-5">Thank you for Voting!</p>
+                        <a href="javascript:void(0)" [routerLink]="['/']" class="text-uppercase pull-left backBtn"><i class="fa fa-angle-left"></i> Back</a>
+                        <div class="pull-right">
+                            <span class="shareSpan">Share with</span>
+                            <a href="javascript:void(0)"
+                                (click)="openFb()"><i class="fa fa-facebook social-share facebookShare" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0)"
+                            (click)="openTwitter()"><i class="fa fa-twitter social-share twitterShare" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+
+@import '../signup/signup.component.scss';
+
+.resendlink {
+    padding: 110px 0 30px;
+
+    h2 {
+        font-weight: 300;
+        font-size: 48px;
+        color: #828282;
+        margin: 0 0 20px;
+    }
+
+    p {
+        font-size: 25px;
+        line-height: normal;
+        color: #828282;
+    }
+}
+
+.signupwhite {
+    height: calc(100vh - 30px);
+}
+
+.questionsemail {
+    margin-top: 80px;
+    max-width: 330px;
+
+    p {
+        font-size: 20px;
+        color: #c9c9c9;
+    }
+
+    .contact-email {
+        a {
+            color: #828282;
+            font-weight: 600;
+            font-size: 25px;
+            text-decoration: none;
+        }
+    }
+}

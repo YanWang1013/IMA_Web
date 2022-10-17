@@ -1,0 +1,56 @@
+<!-- @format -->
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Sponsors</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)" [routerLink]="['/']">HOME</a></li>
+                        <li><p>SPONSORS</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- Sponcers Start -->
+<section class="sponsorsBoxsec">
+    <div class="container">
+        <div *ngIf="!isNodata">
+            <div class="row mt-5 mb-4 sponsorsBox" *ngFor="let advertisement of advertisementList.data;
+                    trackBy: trackById">
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex justify-content-center align-items-center ">
+                        <app-attachment [type]="'mobile'"
+                            [attachment]="advertisement.attachment"
+                             [cssClass]="'sponsorsBox-img'"
+                        ></app-attachment>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6 pr-5 d-flex align-items-center">
+                    <div class="advertmaincontent">
+                        <h2 class="m-0 p-0 textWhite">
+                            {{ advertisement.name }}
+                        </h2>
+                        <p class="pt-3">
+                            {{ advertisement.description }}
+                        </p>
+                        <div class="purchasebtn pt-4">
+                            <a
+                                href="{{ advertisement.url }}"
+                                class="primaryBtn"
+                                target="_blank"
+                                >Purchase</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sponcers End -->

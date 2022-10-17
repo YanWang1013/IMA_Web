@@ -1,0 +1,88 @@
+.donatecontainer {
+    max-width: 550px;
+    width: 100%;
+}
+
+.donateinner {
+    min-height: calc(100vh - 641px);
+}
+
+.donateto {
+    font-size: 41px;
+    color: #696969;
+    font-weight: 300;
+    line-height: 25px;
+}
+
+.donatename {
+    font-size: 300px;
+    color: #333;
+    line-height: 180px;
+}
+
+.donate-content {
+    padding: 55px 0 50px;
+    max-width: 340px;
+    h3 {
+        color: #696969;
+        font-size: 47px;
+        font-weight: 300;
+    }
+    p {
+        line-height: 28px;
+        font-size: 16px;
+        margin: 0 0 40px;
+    }
+}
+
+.gofundme {
+    padding: 50px 0 0;
+}
+
+.donate-btn {
+    font-size: 23px;
+    height: 57px;
+    line-height: 42px;
+}
+
+@media (max-width: 1900px) {
+    .donatecontainer {
+        max-width: 410px;
+    }
+    .donateto {
+        font-size: 30px;
+        line-height: 15px;
+    }
+    .donatename {
+        font-size: 225px;
+        line-height: 132px;
+    }
+    .donate-content {
+        h3 {
+            font-size: 35px;
+        }
+        p {
+            font-size: 12px;
+            line-height: 22px;
+            margin-bottom: 25px;
+        }
+    }
+    .gofundme {
+        padding: 25px 0 0;
+    }
+    .donate-btn {
+        font-size: 17px;
+        height: 44px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 767px) {
+    .donatename {
+        font-size: 160px;
+        line-height: 98px;
+    }
+    .donate-content {
+        padding: 25px 0;
+    }
+}

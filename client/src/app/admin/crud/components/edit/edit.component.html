@@ -1,0 +1,102 @@
+<div class="clearfix" *ngIf="menu">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Edit <b>{{menu.title}}</b></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="responseData">
+            <div class="col-sm-6 col-lg-4" *ngFor="let item of menuEditFields">
+<!--                <div class="form-group" *ngIf="(item.type === 'text' || item.isNotEdit) && item.name !== 'username'">-->
+                <div class="form-group" *ngIf="(item.type === 'text' || item.isNotEdit)">
+                    <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                    <label for="{{item.name}}" *ngIf="item.isNotEdit" class="form-control" readonly="readonly">{{item.value}}</label>
+<!--                    <input type="text" [(ngModel)]="item.value" *ngIf="!item.isNotEdit" [ngModelOptions]="{standalone: true}" class="form-control"-->
+<!--                           id="{{item.name}}" placeholder="{{item.placeholder}}">-->
+                    <input type="text" [(ngModel)]="item.value" *ngIf="!item.isNotEdit" [ngModelOptions]="{standalone: true}" [disabled]="item.name === 'username'" class="form-control"
+                           id="{{item.name}}" placeholder="{{item.placeholder}}">
+                </div>
+
+                <div class="form-group" *ngIf="item.type === 'select'">
+                    <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                    <select class="form-control" [(ngModel)]="item.value" id="{{item.name}}" (change)="changeSelect(item, $event)">
+                        <option *ngFor="let option of item.options;" [value]="option.id" [selected]="(option.id === item.value)">{{option[item.option_name]}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group" *ngIf="item.type === 'smart_editor'">
+                    <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                    <angular-editor [(ngModel)]="item.value" class="smart-editor" [placeholder]="'Enter text here...'" [spellcheck]="true"></angular-editor>
+                </div>
+
+                <div class="form-group" *ngIf="item.type === 'textarea'">
+                    <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                    <textarea class="form-control" [(ngModel)]="item.value" id="{{item.name}}" rows="3"></textarea>
+                </div>
+
+                <div class="form-group" *ngIf="item.type === 'file'">
+                    <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <input type="file" (change)="uploadImage($event, item)" [(ngModel)]="item.value" [ngModelOptions]="{standalone: true}" class="form-control-file" id="{{item.name}}">
+                        </div>
+
+                        <div class="col-sm-4">
+<!--                            <div class="contprofileimage" *ngIf="!item.isUploaded">-->
+                            <div class="contprofileimage" >
+                                <app-attachment [type]="'mobile'" [attachment]="responseData.attachment" ></app-attachment>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-check form-check-inline" *ngIf="item.type === 'checkbox'">
+                    <input class="" type="checkbox" id="{{item.name}}" [(ngModel)]="item.value" value="option1">
+                    <label for="{{item.name}}">{{item.label}}</label>
+                </div>
+
+                <div class="form-group" *ngIf="item.type === 'radio'">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="{{item.name}}1" value="option1">
+                        <label class="form-check-label" for="{{item.name}}1">1</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="{{item.name}}2" value="option2">
+                        <label class="form-check-label" for="{{item.name}}2">2</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="{{item.name}}3" value="option3" disabled>
+                        <label class="form-check-label" for="{{item.name}}3">3 (disabled)</label>
+                    </div>
+                </div>
+
+                <div class="form-check" *ngIf="item.type === 'date'">
+                    <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                    <div class="col-sm-3">
+                        <div class="input-group" [style.width.px]="150">
+                            <input class="form-control" [(ngModel)]="item.value" placeholder="yyyy-mm-dd" name="to" ngbDatepicker #d1="ngbDatepicker">
+                            <button class="input-group-addon" (click)="d1.toggle()" type="button">
+                                <span class="fa fa-calendar"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" *ngIf="item.type === 'tags'">
+                    <label for="{{item.name}}">{{item.label}} <span *ngIf="item.is_required">*</span></label>
+                    <ngx-tags-input class="form-control input-lg" [(ngModel)]="item.value" [options]="item.options" displayField="name" [removeLastOnBackspace]="true" (onTagsChanged)="onTagsChangedEventHandler($event, item)"></ngx-tags-input>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix pt-20 text-right">
+            <button class="btn btn-primary" (click)="submit()" type="button"> Submit </button>
+            <button class="btn btn-default" (click)="cancel()" type="button"> Cancel </button>
+        </div>
+    </div>
+</div>

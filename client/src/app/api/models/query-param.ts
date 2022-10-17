@@ -1,0 +1,51 @@
+
+export interface QueryParam {
+    id?: number;
+    page?: number;
+    category_id?: number | string;
+    sort?: string;
+    sortby?: string;
+    class?: string;
+    is_web?: boolean;
+    contest_id?: number;
+    payment_gateway_id?: number;
+    amount?: number;
+    is_active?: boolean;
+    contestant_id?: string;
+    username?: string;
+    product_detail_id?: number;
+    product_size_id?: number;
+    quantity?: number;
+    coupon_code?: string;
+    q?: string;
+    role_id?: number;
+    is_purchase?: boolean;
+    user_address_id?: number;
+    from?: string;
+    to?: string;
+    location?: string;
+    caption?: string;
+    filter_by?: string;
+    ispaid?: number;
+    type?: string;
+    search?: string;
+    customCount?: number;
+    first_name?: string;
+    last_name?: string;
+    email?: string;
+    address?: any;
+    paypal_email?: string;
+    instagram_url?: string;
+    tiktok_url?: string;
+    youtube_url?: string;
+    twitter_url?: string;
+    facebook_url?: string;
+    addressline1?: string;
+    addressline2?: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    zipcode?: string;
+    profile_image_name?: string;
+
+}

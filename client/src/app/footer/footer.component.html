@@ -1,0 +1,79 @@
+<!-- @format -->
+<footer *ngIf="hideFooter">
+    <!-- <div class="footer-menu">
+        <div class="container">
+            <ul *ngIf="pages">
+                <li *ngFor="let page of pages" (click)="redirect(page.url)">
+                    {{page.title}}
+                </li>
+            </ul>
+        </div>
+    </div> -->
+    <section class="footerContact">
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-md-4">
+                    <h4>Our Contacts</h4>
+                    <p>Map description text</p>
+                    <p><i class="fa fa-globe padR20" aria-hidden="true"></i> Jacksotts str. 698 San Diego, California, USA</p>
+                    <p><i class="fa fa-phone padR20" aria-hidden="true"></i> 1-800-123-4567, 1-800-123-4568</p>
+                    <p><a href="mailto: fashion_vogue@support.com"><i class="fa fa-envelope padR20" aria-hidden="true"></i> ima@support.com</a></p>
+                </div> -->
+                <div class="col-md-4 offset-md-2" *ngIf="settings && settings.SPONSORS && settings.SPONSORS.attachment">
+                    <h4>Title Sponsor</h4>
+                    <div class="verticalItem">
+                        <a href="javascript:void(0)">
+                            <div class="itemMedia">
+                                <app-attachment [type]="'mobile'"
+                                [attachment]="settings.SPONSORS.attachment"
+                            ></app-attachment>
+                            </div>
+                            <!-- <div class="itemContent">
+                                <span class="visitBtn">visit</span>
+                                <h3>Model<br> Courses</h3>
+                            </div> -->
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 pl-50">
+                    <h4>Follow Us</h4>
+                    <div class="footerLinks">
+                        <ul class="clearfix unstyled">
+                            <li class="clsFace">
+                                <a href="https://www.facebook.com/influentialmodelawards" title="Facebook" target="_blank">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="clsLink">
+                                <a href="https://www.instagram.com/influentialmodelawards" title="Instagram" target="_blank">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="clsPin">
+                                <a href="javascript:void(0)" title="Youtube">
+                                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <p class="text-left m-0 p-2">
+                        © [IMA]. Copyright 2021 All Rights Reserved
+                    </p>
+                </div>
+
+                <div class="col-sm-4 text-right">
+                    <a class="site-color" href="javascript:void(0)" [routerLink]="['/contactus']"> Contact Us </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,169 @@
+.view-profile {
+    min-height: calc(100vh - 260px);
+    .vpinner {
+        padding: 104px 0 170px;
+    }
+}
+
+.vpcontainer {
+    max-width: 680px;
+    margin-top: -38px;
+}
+
+.profile-image {
+    padding: 0;
+    width: 200px;
+    height: 200px;
+    margin: 50px auto 0 auto;
+    >img {
+        max-width: 560px;
+    }
+}
+
+.profile-name {
+    font-size: 32px;
+    color: #fff;
+    padding: 10px 0 25px 0;
+}
+
+.forgot-subscribe {
+    font-size: 48px;
+    color: #7a7a7a;
+    margin: 0 0 50px;
+}
+
+.subscribed {
+    font-size: 33px;
+    color: #3ea6fa;
+}
+
+p {
+    font-size: 25px;
+    color: #7a7a7a;
+    line-height: normal;
+}
+
+.profile-details {
+    max-width: 380px;
+}
+
+.subscribe-button {
+    margin-top: 30px;
+    max-width: 300px;
+    margin: 0 auto;
+    a {
+        height: 58px;
+        font-size: 18px;
+        line-height: 42px;
+    }
+}
+
+.subscribedicon {
+    width: 92px;
+    height: 92px;
+    position: absolute;
+    left: 50%;
+    bottom: -37px;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1900px) {
+    .profileupdate {
+        a.btn {
+            font-size: 13px;
+        }
+    }
+    .vpcontainer {
+        max-width: 510px;
+        .profile-image {
+            >img {
+                max-width: 420px;
+                width: 100%;
+            }
+        }
+    }
+    .forgot-subscribe {
+        font-size: 37px;
+    }
+    .subscribed {
+        font-size: 25px;
+    }
+    p {
+        font-size: 18px;
+    }
+    .subscribe-button {
+        a {
+            height: 43px;
+            line-height: 28px;
+            font-size: 12px !important;
+            text-transform: uppercase !important;
+            font-weight: 700;
+            border-radius: 0;
+        }
+    }
+    .subscribedicon {
+        width: 69px;
+        height: 69px;
+        bottom: 0;
+        right: 0;
+        left: auto;
+        transform: unset;
+    }
+}
+
+@media (max-width: 767px) {
+    .vpcontainer {
+        margin-top: 0;
+    }
+    .profileupdate {
+        margin-bottom: 15px;
+    }
+    .profile-name {
+        font-size: 32px;
+    }
+    .view-profile {
+        .vpinner {
+            padding: 25px 0;
+        }
+    }
+}
+
+////New Style
+.viewProfiles {
+    background: #0d0d0d;
+    padding: 50px 0;
+}
+
+.btnOutline {
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #c25582;
+    margin-right: 5px;
+    margin-left: 3px;
+    margin-bottom: 10px;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    font-weight: 700;
+    padding: 8px 30px;
+    transition: all 0.4s linear 0s;
+    border-radius: 0;
+    &:focus {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: #c25582;
+        margin-right: 5px;
+        margin-left: 3px;
+        margin-bottom: 10px;
+        font-size: 12px !important;
+        text-transform: uppercase !important;
+        font-weight: 700;
+        padding: 8px 30px;
+        transition: all 0.4s linear 0s;
+        border-radius: 0;
+    }
+    &:hover {
+        background-color: #c25582;
+        border: 1px solid #c25582;
+        color: #fff;
+    }
+}

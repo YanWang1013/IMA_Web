@@ -1,0 +1,107 @@
+<!-- @format -->
+
+<div class="login-page signup-page" [@routerTransition]>
+    <div class="signupwhite">
+        <div class="text-center toplogo">
+            <a href="javascript:void(0)" [routerLink]="['/']">
+                <img src="assets/images/login-logo.png" class="img-fluid" />
+            </a>
+        </div>
+        <form autocomplete="false" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control input-underline input-lg" formControlName="first_name" placeholder="{{ 'First Name' | translate }}" (keydown)="onKeydown($event)" />
+                            <div *ngIf="
+                                    submitted &&
+                                    registerForm.get('first_name').value
+                                        .length === 0
+                                " class="invalid-feedback-show">
+                                {{ 'First Name is required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control input-underline input-lg" formControlName="last_name" placeholder="{{ 'Last Name' | translate }}" (keydown)="onKeydown($event)" />
+                            <div *ngIf="submitted && registerForm.get('last_name').value.length === 0" class="invalid-feedback-show">
+                                {{ 'Last Name is required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control input-underline input-lg" formControlName="email" placeholder="{{ 'Email' | translate }}" (keydown)="onKeydown($event)" />
+                    <div *ngIf="submitted && registerForm.get('email').value.length === 0" class="invalid-feedback-show">
+                        {{ 'Email is required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control input-underline input-lg" formControlName="username" placeholder="{{ 'Username' | translate }}" (keydown)="onKeydown($event)" />
+                    <div *ngIf="submitted && registerForm.get('username').value.length === 0" class="invalid-feedback-show">
+                        {{ 'Username is required' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control input-underline input-lg" formControlName="password" placeholder="{{ 'Password' | translate }}" (keydown)="onKeydown($event)" />
+                    <div *ngIf="submitted && registerForm.get('password').value.length === 0" class="invalid-feedback-show">
+                        {{ 'Password is required' | translate }}
+                    </div>
+                    <div *ngIf="submitted && registerForm.get('password').value.length !== 0 && registerForm.get('password').value.length < 4" class="invalid-feedback-show">
+                        {{ 'Password must be minimum 3 Characters' | translate }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control input-underline input-lg" formControlName="confirm_password" placeholder="{{ 'Repeat Password' | translate }}" (keydown)="onKeydown($event)" />
+                    <div *ngIf="submitted && registerForm.get('confirm_password').value.length === 0" class="invalid-feedback-show">
+                        {{ 'Confirm Password is required' | translate }}
+                    </div>
+                    <div *ngIf="submitted && registerForm.get('confirm_password').value.length !== 0 && registerForm.get('confirm_password').value.length < 4" class="invalid-feedback-show">
+                        {{ 'Confirm Password must be minimum 3 Characters' | translate }}
+                    </div>
+                    <div *ngIf="submitted && registerForm.get('confirm_password').value.length >= 6 && registerForm.get('password').value !== registerForm.get('confirm_password').value"
+                         class="invalid-feedback-show">
+                        {{ 'Password and Confirm Password should match.' | translate }}
+                    </div>
+                </div>
+            </div>
+            <div class="login-actions">
+                <div class="row">
+                    <div class="col-sm-6 text-left">
+                        <a class="btn btn-primary" (keydown)="onKeydown($event)" (click)="onSubmit()">
+                            {{ 'Sign Up' | translate }}
+                        </a>
+                    </div>
+
+                    <div class="col-sm-6 text-right">
+                        <button type="button" class="btn btn-secondary" [routerLink]="['/']">
+                            <i class="fa fa-angle-left"></i> Back
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="already_acc">
+                Already have an account?
+                <a class="" [routerLink]="['/login']">{{
+                    'Log in' | translate
+                }}</a>
+            </div>
+            <div class="ortext">
+                <span>or</span>
+            </div>
+            <div class="thirdlogin">
+                <p class="thirdtext">Sign in up using</p>
+                <a href="javascript:void(0)" class="rounded-btn text-center mb-3">
+                    <img src="../../assets/images/sign_facebook.png" (click)="signInWithFB()" alt="" class="clsWidth-44">
+                    <!-- <i class="fa fa-facebook" aria-hidden="true"></i>Sign in with <span>Facebook</span> -->
+                </a>
+                <a href="javascript:void(0)" class="rounded-btn text-center">
+                    <img src="../../assets/images/sign_google.png" (click)="signInWithGoogle()" alt="" class="clsWidth-44">
+                    <!-- <i class="fa fa-google" aria-hidden="true"></i>Sign in with
+                    <span>Google</span> -->
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,179 @@
+// shared css for the login and signup page
+@import '../login/login.component.scss';
+.signup-page {
+    background: #20293c;
+    height: 100vh;
+    text-align: center;
+    padding: 15px 0;
+    .form-content {
+        padding-top: 10px;
+    }
+    .login-actions {
+        margin: 0;
+    }
+    .thirdlogin {
+        margin: 0;
+    }
+    .toplogo {
+        img {
+            max-width: 120px;
+        }
+    }
+}
+
+.signupwhite {
+    background: #0d0d0d;
+    max-width: 800px;
+    width: 100%;
+    padding: 40px 0;
+    margin: 0 auto;
+    form {
+        padding: 15px 145px;
+        input {
+            background-color: transparent;
+            border-radius: 0;
+            border: 1px solid rgba(128, 128, 128, 0.5);
+            color: #808080;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 9px;
+            font-size: 12px;
+            font-weight: 700;
+            // text-transform: uppercase;
+        }
+        .form-group {
+            padding: 0;
+            margin: 0 0 20px;
+        }
+    }
+}
+
+.already_acc {
+    color: #666;
+    font-size: 13px;
+    margin: 15px 0 0;
+    font-weight: 600;
+    a {
+        text-decoration: underline;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #666;
+    }
+}
+
+.ortext {
+    position: relative;
+    color: #000;
+    margin: 20px 0;
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: #acacac;
+        left: 0;
+        top: 50%;
+        transform: translate(0%, -50%);
+    }
+    span {
+        background: #fff;
+        position: relative;
+        z-index: 9;
+        font-size: 16px;
+        padding: 0 4px;
+        top: -2px;
+    }
+}
+
+@media (max-width: 1900px) {
+    .signup-page {
+        .toplogo {
+            img {
+                max-width: 100px !important;
+            }
+        }
+    }
+    .signupwhite {
+        max-width: 600px;
+        form {
+            padding: 15px 100px;
+            .form-group {
+                margin: 0 0 15px;
+            }
+        }
+    }
+    .signup-page {
+        .login-actions {
+            .register-btn {
+                font-size: 16px;
+                line-height: 32px;
+            }
+        }
+        .thirdlogin {
+            .thirdtext {
+                font-size: 13px;
+            }
+        }
+    }
+    .already_acc {
+        font-size: 11px;
+        a {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .signup-page {
+        padding: 0;
+        height: inherit;
+    }
+    .signupwhite {
+        form {
+            padding: 15px;
+        }
+    }
+}
+
+/// New Style
+.register-btn {
+    background-color: #c25582;
+    border: 1px solid #c25582;
+    color: #fff;
+    margin-right: 5px;
+    margin-left: 3px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 3px 30px;
+    border-radius: 0;
+    transition: all 0.4s linear 0s;
+    &:focus {
+        background-color: #c25582;
+        border: 1px solid #c25582;
+        color: #fff;
+        margin-right: 5px;
+        margin-left: 3px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 12px !important;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 3px 30px;
+        border-radius: 0;
+        transition: all 0.4s linear 0s;
+    }
+    &:hover {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: #c25582;
+    }
+}
+
+.clsWidth-44 {
+    width: 44%;
+}

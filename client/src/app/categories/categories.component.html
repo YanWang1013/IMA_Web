@@ -1,0 +1,33 @@
+<section class="clearfix">
+    <div class="innerBanners_box">
+        <div class="subheader position-relative">
+            <div class="subheadings">
+                <h2> Categories </h2>
+
+<!--                <ul class="clearfix unstyled clsListWinner">-->
+<!--                    <li><a href="javascript:void(0)" [routerLink]="['/']">HOME</a></li>-->
+<!--                    <li>-->
+<!--                        <p>CATEGORIES</p>-->
+<!--                    </li>-->
+<!--                </ul>-->
+            </div>
+            <img src="assets/images/contestant-headerbg.jpg" class="img-fluid">
+        </div>
+    </div>
+</section>
+<div class="imacontainer clsCategoriesBlock">
+    <div class="content-middle">
+        <div class="categoriescontainer mx-auto px-4" *ngIf="!isNodata">
+            <ul class="list-unstyled categorieslisting row cateText">
+                <li class="col-md-6" *ngFor=" let category of categoriesList.data; trackBy: trackById">
+                    <a href="javascript:void(0)" [routerLink]="['/contestants', category?.slug]">
+                        {{ category.name }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="categoriescontainer mx-auto px-4" *ngIf="isNodata">
+            No Records found.
+        </div>
+    </div>
+</div>

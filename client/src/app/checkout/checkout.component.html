@@ -1,0 +1,308 @@
+<!-- @format -->
+<!-- Banner Start -->
+<!--<section class="innerBanners">-->
+<!--    <div class="innerBanners_overlay"></div>-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12">-->
+<!--                <div class="innerBanners_box">-->
+<!--                    &lt;!&ndash; <h1>{{name}}</h1> &ndash;&gt;-->
+<!--                    <h1>Vote For {{displayname}}</h1>-->
+<!--                    &lt;!&ndash; <ul>-->
+<!--                        <li><a href="javascript:void(0)">HOME</a></li>-->
+<!--                        <li><p>CATEGORIES</p></li>-->
+<!--                    </ul> &ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<section class="clearfix">
+    <div class="innerBanners_box">
+        <div class="subheader position-relative">
+            <div class="subheadings">
+                <h2> Vote For {{displayname}} </h2>
+            </div>
+            <img src="assets/images/contestant-headerbg.jpg" class="img-fluid">
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<div class="imacontainer">
+    <!-- <div class="carttitle d-flex justify-content-center align-items-center">
+        <h3 class="rozhafont">{{name}}</h3>
+    </div> -->
+    <div class="content-middle checkout-middle">
+        <div class="row">
+            <div class="col-md-12 order-md-first" >
+                <div class="paymentOp">
+                    <h4 class="pb-2">Payment Options</h4>
+                    <img src="assets/images/payment-options1.png" class="pb-3" />
+                </div>
+                <div class="maincheckout" >
+                    <form >
+                        <h4 class="paymenttitle" *ngIf="isProduct">Choose Address</h4>
+                        <div class="paymentblock" *ngIf="isProduct">
+                            <div class="paymentoptions">
+                                <div *ngFor="
+                                let address of addressArrayList;
+                                trackBy: trackById">
+                                    <div
+                                        class="custom-control custom-radio custom-control-inline">
+                                        <input
+                                            type="radio"
+                                            name="userCategory"
+                                            [(ngModel)]="user_address_id"
+                                            (click)="changeAddress(address)"
+                                            [ngModelOptions]="{standalone: true}"
+                                            [value]="address.id"
+                                            id="address_{{address.id}}"
+                                            class="custom-control-input"
+                                        />
+                                        <label class="custom-control-label" for="address_{{address.id}}"
+                                            >{{address.name}}</label
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-2" *ngIf="isProduct && address">
+                                <label for="Name">Name</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="address.name"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="Name"
+                                />
+                            </div>
+                            <div class="form-group col-md-4" *ngIf="isProduct && address">
+                                <label for="address1">Address</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="address.addressline1"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="address1"
+                                />
+                            </div>
+                            <div class="form-group col-md-6" *ngIf="isProduct && address">
+                                <label for="address2" >Address2</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="address.addressline2"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="address2"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6" *ngIf="isProduct && address">
+                                <label for="inputCountry">Country</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="address.country"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="inputCountry"
+                                />
+                            </div>
+                            <div class="form-group col-md-4" *ngIf="isProduct && address">
+                                <label for="inputState">State</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="address.state"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="inputState"
+                                />
+                            </div>
+                            <div class="form-group col-md-2" *ngIf="isProduct && address">
+                                <label for="inputZip">Zip Code</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    [(ngModel)]="address.zipcode"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="inputZip"
+                                />
+                            </div>
+                            <div class="form-group col-md-2" *ngIf="isProduct && address">
+                                <div class="form-check">
+                                    <input
+                                        type="checkbox"
+                                        class="form-check-input"
+                                        [(ngModel)]="address.is_default"
+                                        [ngModelOptions]="{standalone: true}"
+                                        id="inputPrimary"
+                                    />
+                                    <label class="form-check-label" for="inputPrimary"> Default Address</label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="hrColor1">
+                        <div class="form-row">
+                            <div class="form-group col-md-6" *ngIf="isFund">
+                                <label for="amount" >Amount In </label>
+                                <input
+                                    type="number"
+                                    min="1"
+                                    class="form-control"
+                                    [(ngModel)]="amount"
+                                    [ngModelOptions]="{standalone: true}"
+                                    id="amount"
+                                />
+                            </div>
+                        </div>
+                        <!-- <h4 class="paymenttitle" *ngIf="isCategory">Choose Category</h4>
+                        <div class="paymentblock" *ngIf="isCategory">
+                            <div class="paymentoptions">
+                                <div *ngFor="
+                                let userCategory of userCategories;
+                                trackBy: trackById">
+                                    <div
+                                        class="custom-control custom-radio custom-control-inline">
+                                        <input
+                                            type="radio"
+                                            name="userCategory"
+                                            [(ngModel)]="category_id"
+                                            [value]="userCategory.category.id"
+                                            id="userCategory_{{userCategory.category.id}}"
+                                            class="custom-control-input"
+                                        />
+                                        <label class="custom-control-label" for="userCategory_{{userCategory.category.id}}"
+                                            >{{userCategory.category.name}}</label
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr *ngIf="!isFund" class="hrColor1"> -->
+                        <h4 *ngIf="!isFund" class="paymenttitle">Amount To Be Paid</h4>
+                        <div class="paymentblock" *ngIf="votePackage">
+                            <div class="paymentoptions">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                   <span *ngIf="packageId !== '6'"> Amount : {{votePackage.price | currency: settings.CURRENCY_CODE:'symbol'}}</span>
+                                   <span *ngIf="packageId === '6'"> Amount : {{customPackageCount / votePackage.vote | currency: settings.CURRENCY_CODE:'symbol'}}</span>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">Exculsive of Paypal Processing Fee</div>
+                                <!-- <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price < 10">
+                                    Processing Fee : {{(((paypalLessTen / 100) * votePackage.price) + paypalLessTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline" *ngIf="votePackage.price > 10">
+                                    Processing Fee : {{(((paypalMoreTen / 100) * votePackage.price) + paypalMoreTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="paymentblock" *ngIf="settings && isSubscription">
+                            <div class="paymentoptions">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    Amount : {{settings.SUBSCRIBE_PRICE | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline" *ngIf="settings.SUBSCRIBE_PRICE < 10">
+                                    Processing Fee : {{(((paypalLessTen / 100) * settings.SUBSCRIBE_PRICE) + paypalLessTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline" *ngIf="settings.SUBSCRIBE_PRICE > 10">
+                                    Processing Fee : {{(((paypalMoreTen / 100) * settings.SUBSCRIBE_PRICE) + paypalMoreTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="paymentblock" *ngIf="isProduct && totalAmount">
+                            <div class="paymentoptions">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    Amount : {{totalAmount | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline" *ngIf="totalAmount < 10">
+                                    Processing Fee : {{(((paypalLessTen / 100) * totalAmount) + paypalLessTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline" *ngIf="totalAmount > 10">
+                                    Processing Fee : {{(((paypalMoreTen / 100) * totalAmount) + paypalMoreTenInCents).toFixed(1) | currency: settings.CURRENCY_CODE:'symbol'}}
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="paymenttitle">Payment</h4>
+                        <div class="paymentblock">
+                            <div class="paymentoptions">
+                                <div *ngFor="
+                                let paymentGateway of paymentGateways;
+                                trackBy: trackById">
+                                    <div
+                                        class="custom-control custom-radio custom-control-inline">
+                                        <input
+                                            type="radio"
+                                            [(ngModel)]="payment_gatewayId"
+                                            [value]="paymentGateway.id"
+                                            name="{{paymentGateway.name}}"
+                                            id="{{paymentGateway.name}}"
+                                            class="custom-control-input"
+                                        />
+                                        <label class="custom-control-label" for="{{paymentGateway.name}}"
+                                            >{{paymentGateway.name}}</label
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row" [ngClass]="{'block-hide': payment_gatewayId !== 3}">
+                                <div class="form-group col-md-6">
+                                    <label for="ccname">Name</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="ccname"
+                                    />
+                                    <small class="form-text text-muted"
+                                        >Full name as displayed on card</small
+                                    >
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ccnum"
+                                        >Credit Card Number</label
+                                    >
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="ccnum"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 " [ngClass]="{'block-hide': payment_gatewayId !== 3}">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="expire"
+                                                >Expiration</label
+                                            >
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="expire"
+                                            />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="cvv">CVV</label>
+                                            <input
+                                                type="number"
+                                                class="form-control"
+                                                id="cvv"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 continuews">
+                                    <button type="button"
+                                        class="continue-btn text-uppercase" (click)="pay()"
+                                    >
+                                        Continue
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>

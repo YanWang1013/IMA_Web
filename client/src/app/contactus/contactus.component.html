@@ -1,0 +1,89 @@
+<!-- Banner Start -->
+<section class="clearfix">
+    <div class="innerBanners_box">
+        <div class="subheader position-relative">
+            <div class="subheadings">
+                <h2> Contact Us </h2>
+
+<!--                <ul class="clearfix unstyled clsListWinner">-->
+<!--                    <li><a href="javascript:void(0)" [routerLink]="['/']">HOME</a></li>-->
+<!--                    <li>-->
+<!--                        <p>CONTACT US</p>-->
+<!--                    </li>-->
+<!--                </ul>-->
+            </div>
+            <img src="assets/images/contestant-headerbg.jpg" class="img-fluid">
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- Form Start -->
+<section class="contForm">
+    <div class="container" [@routerTransition]>
+        <div class="row">
+            <div class="col-md-8">
+                <h2></h2>
+                <form autocomplete="false" [formGroup]="contactUsForm" (ngSubmit)="onSubmit()">
+                    <div class="contact-form row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control input-underline input-lg" formControlName="name" placeholder="{{ 'Name' | translate }}" (keydown)="onKeydown($event)" />
+                                <div *ngIf="submitted && contactUsForm.get('name').value.length === 0" class="invalid-feedback-show">
+                                    {{ 'Name is required' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control input-underline input-lg" formControlName="subject" placeholder="{{ 'Subject' | translate }}" (keydown)="onKeydown($event)" />
+                                <div *ngIf="submitted && contactUsForm.get('subject').value.length === 0" class="invalid-feedback-show">
+                                    {{ 'Subject is required' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control input-underline input-lg" formControlName="phone" placeholder="{{ 'Phone Number' | translate }}" (keydown)="onKeydown($event)" />
+                                <div *ngIf="submitted && contactUsForm.get('phone').value.length === 0" class="invalid-feedback-show">
+                                    {{ 'Phone Number is required' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control input-underline input-lg" formControlName="email" placeholder="{{ 'Email' | translate }}" (keydown)="onKeydown($event)" />
+                                <div *ngIf="submitted && contactUsForm.get('email').value.length === 0" class="invalid-feedback-show">
+                                    {{ 'Email is required' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                <textarea class="form-control input-underline input-lg" rows="9" cols="45" formControlName="message" placeholder="{{ 'Message' | translate }}" (keydown)="onKeydown($event)"></textarea>
+                                <div *ngIf="submitted && contactUsForm.get('message').value.length === 0" class="invalid-feedback-show">
+                                    {{ 'Message is required' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="contact-form-submit topmargin_10">
+                                <button type="button" id="contact_form_submit" (click)="onSubmit()" name="contactSubmit" class="contactSubmit">Submit</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <div class="contAddress">
+                    <h2>Contact Info</h2>
+                    <p><i class="fa fa-globe"></i> Miami, FL USA</p>
+                    <p><i class="fa fa-phone"></i> (305) 999-5910</p>
+                    <p><i class="fa fa-envelope"></i> <a href="mailto:itstheimas@gmail.com">itstheimas@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Form End -->

@@ -1,0 +1,21 @@
+<!-- @format -->
+
+<div [@routerTransition]>
+    <h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'primary'" [icon]="'fa-user'" [count]="user_count" [label]="'Users'" [link]="'/admin/actions/users'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'success'" [icon]="'fa-building'" [count]="company_count" [label]="'Companies'" [link]="'/admin/actions/companies'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'warning'" [icon]="'fa-female'" [count]="contestant_count" [label]="'Contestants'" [link]="'/admin/actions/contestants'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'danger'" [icon]="'fa-check-circle'" [count]="approval_count" [label]="'Approvals'" [link]="'/admin/actions/approvals'"></app-stat>
+        </div>
+    </div>
+    <hr />
+    <app-charts></app-charts>
+</div>

@@ -1,0 +1,128 @@
+<!-- @format -->
+<div class="eprofilecontainer mx-auto px-4 my-5" *ngIf="user">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <div class="editPro">
+                <div class="col-md-12 text-center eprofleft">
+                    <div class="profile-image mx-auto mb-4">
+                        <app-attachment [type]="'mobile'" [attachment]="user.attachment" ></app-attachment>
+                    </div>
+                    <div class="mb-4">
+                        <app-attachment-upload [class]="userClass" [multiple]="multiple" (attachment)="attachment($event)"></app-attachment-upload>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()" class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>First Name*</label>
+                            <input class="form-control" type="text" formControlName="first_name"/>
+                            <div class="invalid-feedback-show" *ngIf="isSubmitted && f.first_name.errors !== null && f.first_name.errors.required">
+                                First Name is required.
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Last Name*</label>
+                            <input class="form-control" type="text" formControlName="last_name"/>
+                            <div class="invalid-feedback-show" *ngIf="isSubmitted && f.last_name.errors !== null && f.last_name.errors.required">
+                                Last Name is required.
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>User Name*</label>
+                            <input class="form-control" type="text" formControlName="username"/>
+                            <div class="invalid-feedback-show" *ngIf="isSubmitted && f.username.errors !== null && f.username.errors.required">
+                                User Name is required.
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Email Address*</label>
+                            <input class="form-control" type="email" formControlName="email"/>
+                            <div class="invalid-feedback-show" *ngIf="isSubmitted && f.email.errors !== null && f.email.errors.required">
+                                Email is required.
+                            </div>
+                            <div class="invalid-feedback-show" *ngIf="isSubmitted && f.email.errors !== null && f.email.errors.email">
+                                Invalid Email format.
+                            </div>
+                        </div>
+                        <div formGroupName="address" class="form-row px-2">
+                            <div class="form-group col-md-6">
+                                <label>AddressLine1*</label>
+                                <input class="form-control" type="text" formControlName="addressline1"/>
+                                <div class="invalid-feedback-show" *ngIf="isSubmitted && f.address.controls.addressline1.errors !== null && f.address.controls.addressline1.errors.required">
+                                    Addressline1 is required.
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>AddressLine2*</label>
+                                <input class="form-control" type="text" formControlName="addressline2"/>
+                                <div class="invalid-feedback-show" *ngIf="isSubmitted && f.address.controls.addressline2.errors !== null && f.address.controls.addressline2.errors.required">
+                                    Addressline2 is required.
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>City*</label>
+                                <input class="form-control" type="text" formControlName="city"/>
+                                <div class="invalid-feedback-show" *ngIf="isSubmitted && f.address.controls.city.errors !== null && f.address.controls.city.errors.required">
+                                    City is required.
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>State*</label>
+                                <input class="form-control" type="text" formControlName="state"/>
+                                <div class="invalid-feedback-show" *ngIf="isSubmitted && f.address.controls.state.errors !== null && f.address.controls.state.errors.required">
+                                    State is required.
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Country*</label>
+                                <input class="form-control" type="text" formControlName="country"/>
+                                <div class="invalid-feedback-show" *ngIf="isSubmitted && f.address.controls.country.errors !== null && f.address.controls.country.errors.required">
+                                    Country is required.
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Zip Code*</label>
+                                <input class="form-control" type="text" formControlName="zipcode"/>
+                                <div class="invalid-feedback-show" *ngIf="isSubmitted && f.address.controls.zipcode.errors !== null && f.address.controls.zipcode.errors.required">
+                                    Zipcode is required.
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-12" *ngIf="sessionService.user.role.name !== 'User'">
+                            <label>Paypal Email*</label>
+                            <input class="form-control" type="text" formControlName="paypal_email"/>
+                            <div class="invalid-feedback-show" *ngIf="isSubmitted && f.paypal_email.errors !== null && f.paypal_email.errors.email">
+                                Invalid Email format.
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12" *ngIf="sessionService.user.role.name !== 'User'">
+                            <label>Instagram</label>
+                            <input class="form-control" type="text" formControlName="instagram_url"/>
+                        </div>
+                        <div class="form-group col-md-12" *ngIf="sessionService.user.role.name !== 'User'">
+                            <label>Tiktok</label>
+                            <input class="form-control" type="text" formControlName="tiktok_url"/>
+                        </div>
+                        <div class="form-group col-md-12" *ngIf="sessionService.user.role.name !== 'User'">
+                            <label>Youtube</label>
+                            <input class="form-control" type="text" formControlName="youtube_url"/>
+                        </div>
+                        <div class="form-group col-md-12" *ngIf="sessionService.user.role.name !== 'User'">
+                            <label>Twitter</label>
+                            <input class="form-control" type="text" formControlName="twitter_url"/>
+                        </div>
+                        <div class="form-group col-md-12" *ngIf="sessionService.user.role.name !== 'User'">
+                            <label>Facebook</label>
+                            <input class="form-control" type="text" formControlName="facebook_url"/>
+                        </div>
+                        <span class="pl-2 noteText">Note: Please fill mandatory * fields</span>
+                        <div class="pt-4 text-center col-md-12">
+                            <input type="submit" class="primaryBtn text-uppercase" value="Update Profile"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

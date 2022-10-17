@@ -1,0 +1,20 @@
+<!-- @format -->
+
+<input
+    *ngIf="!isMultiple"
+    type="file"
+    style="display: none;"
+    id="file"
+    (change)="fileUpload($event)"
+/>
+<input
+    *ngIf="isMultiple"
+    type="file"
+    style="display: none;"
+    id="file"
+    multiple="multiple"
+    (change)="fileUpload($event)"
+/>
+<label for="file" class="text-uppercase btn btn-outline-dark"
+    >Upload Photo</label
+>

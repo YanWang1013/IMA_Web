@@ -1,0 +1,238 @@
+<!-- Banner Start -->
+<section class="innerBanners">
+    <div class="innerBanners_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="innerBanners_box">
+                    <h1>Products</h1>
+                    <ul>
+                        <li><a href="javascript:void(0)" [routerLink]="['/']">HOME</a></li>
+                        <li><a href="javascript:void(0)">SHOP</a></li>
+                        <li><p>PRODUCTS</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- Product Start -->
+<section class="secProduct">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="proFilter">
+                    <div class="priceFilter">
+                        <h2>Filter by Price</h2> 
+                        <span>Filter by price interval:</span> <div class="priColor2"><b>$ 1</b> <mv-slider [(value)]="priceSlider" [min]="1" [precision]="2" [tooltip]="'show'" range="true" [max]="1000" [enabled]="true"></mv-slider> <b>$ 1000</b></div>
+                        <a href="javascript:void(0)" class="mediaBtn">Filter</a>  
+                    </div>            
+                    <div class="mediaFilter">
+                        <h2>Your Cart</h2>
+                        <div class="mediaFilter_box">
+                            <div class="mediaLeft">
+                                <a href="javascript:void(0)">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="mediaContent">                       
+                                <a href="javascript:void(0)">At vero eos accusam</a>                      
+                                <p class="amount">1 × <span>$49.95</span></p>
+                            </div>
+                        </div>
+                        <div class="mediaFilter_box">
+                            <div class="mediaLeft">
+                                <a href="javascript:void(0)">
+                                    <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                </a>
+                            </div>
+
+                            <div class="mediaContent">                       
+                                <a href="javascript:void(0)">At vero eos accusam</a>                      
+                                <p class="amount">1 × <span>$49.95</span></p>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" [routerLink]="['/shop/test']" class="mediaBtn">View cart</a>
+                    </div>
+                    <!-- <div class="cateFilter">
+                        <h2>All Categories</h2>
+                        <ul class="cateFilter_links">
+                            <li>
+                                <a href="javascript:void(0)" title="">Brisket turkey jerky</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" title="">Pig ham shank strip</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" title="">Beef picanha venison</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" title="">Picanha spare ribs</a>
+                            </li>
+                        </ul>
+                    </div> -->
+                    <!-- <div class="recentFilter">
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Popular</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Recent</a>
+                        </div>
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">At vero eos accusam</a>                      
+                                        <p class="amount">$49.95</p>
+                                    </div>
+                                </div> 
+                                <div class="clearfix"></div>
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">Lorem Ipsum ametsd</a>                      
+                                        <p class="amount">$29.95</p>
+                                    </div>
+                                </div> 
+                                <div class="clearfix"></div>
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">Nam libero tempore</a>                      
+                                        <p class="amount">$36.95</p>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">At vero eos accusam</a>                      
+                                        <p class="amount">$49.95</p>
+                                    </div>
+                                </div> 
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">Lorem Ipsum ametsd</a>                      
+                                        <p class="amount">$29.95</p>
+                                    </div>
+                                </div> 
+                                <div class="recentFilter_box">
+                                    <div class="recentLeft">
+                                        <a href="javascript:void(0)">
+                                            <img src="assets/images/prodcutfilter1.jpg" class="img-fluid">
+                                        </a>
+                                    </div>
+
+                                    <div class="recentContent">                       
+                                        <a href="javascript:void(0)">Nam libero tempore</a>                      
+                                        <p class="amount">$36.95</p>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="proList">
+                    <div class="searchContainer">  
+                        <div class="row">      
+                            <div class="col-md-5">
+                                <div class="searchContainer_iput">
+                                    <input type="text" placeholder="Search Item" [(ngModel)]="q"
+                                    [ngModelOptions]="{standalone: true}" name="search">
+                                    <button type="button"><i class="fa fa-search" (click)="getProducts()"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="text-center">1-9 of 50 results</p>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group pull-right">                                    
+                                    <select class="form-control" (change)="role(0, 'Filter By All')">
+                                        <option>Filter By All</option>
+                                        <option>Filter By Contestant</option>
+                                        <option>Filter By IMA</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="row">           
+                        <div class="col-md-4 hoverZoomin" *ngFor="let product of productDetails; let productIndex = index; trackBy: trackById">
+                            <div class="shopBox">
+                                <a href="javascript:void(0)" title="">
+                                    <app-attachment [type]="'mobile'" [attachment]="product.details[0].attachments[0]" 
+                                    [cssClass]="'shopattimage hoverZoominimg'"></app-attachment>
+                                </a>
+                                <span class="priceCross">
+                                    <ins>
+                                        <span class="amount"> {{ product.details[0].amount_detail.price | currency: settings.CURRENCY_CODE:'symbol' }}</span>
+                                    </ins>
+                                </span>
+                                <div class="product-buttons">
+                                    <!-- <a href="javascript:void(0)" rel="nofollow" class="favorite_button"><i class="fa fa-heart" aria-hidden="true"></i></a> -->
+                                    <a href="javascript:void(0)" rel="nofollow" class="cart_button" [routerLink]="['/shop/test']"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                </div>                            
+                                <h4 class="text-center"><a href="shop-product-right.html"> {{ product.name }}</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-middle contestants-section" *ngIf="isNodata">
+                        <div class="row mb-4">
+                            <div class="col-md-7">
+                                No Records
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagiNationbox">
+                        <div class="row">
+                            <nav aria-label="...">
+                                <ul class="pagination text-center">
+                                    <li class="page-item disabled">
+                                      <a class="page-link" href="javascript:void(0)" tabindex="-1" aria-disabled="true">Prev</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="javascript:void(0)">1 <span class="sr-only">(current)</span></a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                                    <li class="page-item">
+                                      <a class="page-link" href="javascript:void(0)">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product End -->
